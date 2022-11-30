@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "1375dd72297b5efd9f3c53202bb015e9218690cdbac7ad61deddd6407e0e70de"
+build_start_time: [1669843394, 496211051]
+build_end_time: [1669843401, 375381946]
+inputs:
+  "/Users/isabellabertucci/development/canteco_app/macos/Flutter/GeneratedPluginRegistrant.swift": [1669843380, 420845508]
+  "/Users/isabellabertucci/development/canteco_app/macos/Runner/AppDelegate.swift": [1657744731, 0]
+  "/Users/isabellabertucci/development/canteco_app/macos/Runner/MainFlutterWindow.swift": [1657744731, 0]

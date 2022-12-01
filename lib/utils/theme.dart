@@ -1,13 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-class Theme {
-  static final Theme _instance = Theme._internal();
+class CustomTheme {
+  static final CustomTheme _instance = CustomTheme._internal();
 
-  factory Theme() => _instance;
+  factory CustomTheme() => _instance;
 
-  Theme._internal();
+  CustomTheme._internal();
 
   static const white = Color(0xffffffff);
   static const eerieBlack = Color(0xff1E1E1E);
@@ -29,7 +27,20 @@ class Theme {
       primaryColorLight: ultramarineBlue,
       primaryTextTheme: getTextTheme(textColor: eerieBlack),
       textTheme: getTextTheme(textColor: silver),
+      elevatedButtonTheme: getButtonTheme(),
       brightness: Brightness.light,
+    );
+  }
+
+  static ElevatedButtonThemeData getButtonTheme() {
+    return ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+          backgroundColor: ultramarineBlue,
+          disabledBackgroundColor: blueCrayola,
+          disabledForegroundColor: white,
+          textStyle: getTextTheme(textColor: white).headline1,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
     );
   }
 
@@ -119,7 +130,3 @@ class Theme {
     });
   }
 }
-/* 
-
-
- */

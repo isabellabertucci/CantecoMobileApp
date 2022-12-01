@@ -36,7 +36,7 @@ class CustomTheme {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: ultramarineBlue,
-          disabledBackgroundColor: blueCrayola,
+          disabledBackgroundColor: periwinkleCrayola,
           disabledForegroundColor: white,
           textStyle: getTextTheme(textColor: white).headline1,
           shape:

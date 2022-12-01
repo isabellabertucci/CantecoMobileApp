@@ -5,9 +5,14 @@ import '../utils/theme.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
+  bool isPassword;
+
   final String label;
-  const CustomTextField(
-      {super.key, required this.controller, required this.label});
+  CustomTextField(
+      {super.key,
+      required this.controller,
+      required this.label,
+      this.isPassword = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +27,10 @@ class CustomTextField extends StatelessWidget {
         const SizedBox(height: 10),
         TextField(
           controller: controller,
+          obscureText: isPassword,
           decoration: InputDecoration(
             filled: true,
             fillColor: CustomTheme.cultured,
-            counterText: "",
             hintText: "testest",
             labelStyle: Theme.of(context).primaryTextTheme.headline3,
             hintStyle: Theme.of(context)

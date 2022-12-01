@@ -1,5 +1,10 @@
+import 'package:canteco_app/utils/assets.dart';
+import 'package:canteco_app/utils/theme.dart';
+import 'package:canteco_app/widgets/customCard.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:canteco_app/widgets/custom_text_field.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,6 +16,9 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   TextEditingController controller = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+
+  var currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +35,69 @@ class _MainScreenState extends State<MainScreen> {
                 text: "test",
                 onTap: () => {},
               ),
-              const Divider(height: 16),
+              const SizedBox(height: 16),
               CustomButton(
                 text: "test",
                 enabled: false,
                 onTap: () => {},
               ),
-              const Divider(height: 16),
-              CustomTextField(label: "text", controller: controller)
+              const SizedBox(height: 16),
+              CustomTextField(label: "text", controller: controller),
+              const SizedBox(height: 16),
+              CustomTextField(
+                label: "Password",
+                controller: controller2,
+                isPassword: true,
+              ),
+              const SizedBox(height: 30),
+              CustomCard(
+                title: "title",
+                subtitle: "subtitle",
+                icon: Assets.icHomeC,
+              )
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        selectedItemColor: CustomTheme.ultramarineBlue,
+        type: BottomNavigationBarType.fixed,
+        onTap: (int index) => {setState(() => currentIndex = index)},
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(Assets.icHomeU,
+                height: 26,
+                color: currentIndex == 0
+                    ? CustomTheme.ultramarineBlue
+                    : CustomTheme.silver),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(Assets.icUtensilsU,
+                height: 26,
+                color: currentIndex == 1
+                    ? CustomTheme.ultramarineBlue
+                    : CustomTheme.silver),
+            label: 'Meals',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(Assets.icSeachU,
+                height: 26,
+                color: currentIndex == 2
+                    ? CustomTheme.ultramarineBlue
+                    : CustomTheme.silver),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(Assets.icUserU,
+                height: 26,
+                color: currentIndex == 3
+                    ? CustomTheme.ultramarineBlue
+                    : CustomTheme.silver),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }

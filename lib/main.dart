@@ -1,6 +1,7 @@
-import 'package:canteco_app/utils/main_screen.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
+
+import 'main_screen.dart';
 
 void main() {
   runApp(const MyApp());

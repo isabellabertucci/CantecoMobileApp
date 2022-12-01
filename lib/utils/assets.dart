@@ -5,6 +5,7 @@ class Assets {
   factory Assets() => _instance;
 
   Assets._internal();
+
   static const icLogo = "assets/images/logo.svg";
   static const icLogoT = "assets/images/logo_txt.svg";
 

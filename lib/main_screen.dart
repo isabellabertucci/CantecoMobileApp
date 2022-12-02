@@ -54,7 +54,13 @@ class _MainScreenState extends State<MainScreen> {
                 title: "title",
                 subtitle: "subtitle",
                 icon: Assets.icHomeC,
-              )
+              ),
+              const SizedBox(height: 30),
+              CustomCard(
+                title: "title",
+                subtitle: "subtitle",
+                icon: Assets.icHomeC,
+              ),
             ],
           ),
         ),

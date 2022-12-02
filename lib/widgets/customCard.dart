@@ -28,6 +28,12 @@ class CustomCard extends StatelessWidget {
         ),
         title: Text(title, style: Theme.of(context).primaryTextTheme.subtitle1),
         subtitle: Text(subtitle, style: Theme.of(context).textTheme.bodyText1),
+        trailing: SvgPicture.asset(
+          Assets.icClose,
+          height: 12,
+          width: 12,
+        ),
+        isThreeLine: true,
       ),
     );
   }

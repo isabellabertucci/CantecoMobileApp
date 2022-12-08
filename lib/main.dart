@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Canteco',
       theme: CustomTheme.lightMode(context),
       themeMode: ThemeMode.light,
-      home: const ProfilePage(),
+      home: const MainScreen(),
       /* MenuStats */
       debugShowCheckedModeBanner: false,
     );

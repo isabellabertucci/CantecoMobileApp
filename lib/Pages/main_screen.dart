@@ -1,7 +1,9 @@
+import 'package:canteco_app/Pages/home_page.dart';
+import 'package:canteco_app/Pages/profile_page.dart';
+import 'package:canteco_app/Pages/serach_page.dart';
 import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:canteco_app/widgets/custom_buttom_home.dart';
-
 import 'package:canteco_app/widgets/custom_card.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:canteco_app/widgets/custom_imputs.dart';
@@ -9,6 +11,8 @@ import 'package:canteco_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+
+import 'meals_page.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -23,54 +27,18 @@ class _MainScreenState extends State<MainScreen> {
 
   var currentIndex = 0;
 
+  final List<Widget> _children = [
+    HomePage(),
+    MealsPage(),
+    SearchPage(),
+    ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomButton(
-                text: "test",
-                onTap: () => {},
-              ),
-              const SizedBox(height: 16),
-              CustomButton(
-                text: "test",
-                enabled: false,
-                onTap: () => {},
-              ),
-              const SizedBox(height: 16),
-              CustomTextField(label: "text", hint: "", controller: controller),
-              const SizedBox(height: 16),
-              CustomTextField(
-                label: "Password",
-                hint: "",
-                controller: controller2,
-                isPassword: true,
-              ),
-              const SizedBox(height: 30),
-              CustomCard(
-                title: "title",
-                subtitle: "subtitle",
-                icon: Assets.icHomeC,
-              ),
-              const SizedBox(height: 30),
-              CustomCard(
-                title: "title",
-                subtitle: "subtitle",
-                icon: Assets.icHomeC,
-              ),
-              const SizedBox(height: 30),
-            ],
-          ),
-        ),
-      ),
-      /* bottomNavigationBar: BottomNavigationBar(
+      body: _children[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         selectedItemColor: CustomTheme.ultramarineBlue,
         type: BottomNavigationBarType.fixed,
@@ -109,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Profile',
           ),
         ],
-      ), */
+      ),
     );
   }
 }

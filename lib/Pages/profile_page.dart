@@ -117,15 +117,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 elevation: 0,
                 child: SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    height: 204,
+                    height: 205,
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Instituition',
-                            style: Theme.of(context).primaryTextTheme.subtitle1,
+                          Row(
+                            children: [
+                              Text(
+                                'Instituition',
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
+                              ),
+                            ],
                           ),
                           Text(
                             'Escola Superior de Media Artes e Design',

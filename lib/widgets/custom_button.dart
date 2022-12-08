@@ -1,4 +1,3 @@
-import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -22,7 +21,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width / 1.5,
       height: 50,
       child: ElevatedButton(
         onPressed: enabled ? () => onTap() : null,

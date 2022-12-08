@@ -1,7 +1,11 @@
+import 'package:canteco_app/Pages/home_page.dart';
+import 'package:canteco_app/Pages/profile_page.dart';
+import 'package:canteco_app/Pages/search_pageD.dart';
+import 'package:canteco_app/Pages/serach_page.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
-
-import 'main_screen.dart';
+import 'Pages/main_screen.dart';
+import 'Pages/menu_stats.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'Canteco',
       theme: CustomTheme.lightMode(context),
       themeMode: ThemeMode.light,
-      home: const MainScreen(),
+      home: const ProfilePage(),
+      /* MenuStats */
       debugShowCheckedModeBanner: false,
     );
   }

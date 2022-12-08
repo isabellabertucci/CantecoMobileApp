@@ -1,7 +1,10 @@
 import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/utils/theme.dart';
-import 'package:canteco_app/widgets/customCard.dart';
+import 'package:canteco_app/widgets/custom_buttom_home.dart';
+
+import 'package:canteco_app/widgets/custom_card.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
+import 'package:canteco_app/widgets/custom_imputs.dart';
 import 'package:canteco_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -42,10 +45,11 @@ class _MainScreenState extends State<MainScreen> {
                 onTap: () => {},
               ),
               const SizedBox(height: 16),
-              CustomTextField(label: "text", controller: controller),
+              CustomTextField(label: "text", hint: "", controller: controller),
               const SizedBox(height: 16),
               CustomTextField(
                 label: "Password",
+                hint: "",
                 controller: controller2,
                 isPassword: true,
               ),
@@ -61,11 +65,12 @@ class _MainScreenState extends State<MainScreen> {
                 subtitle: "subtitle",
                 icon: Assets.icHomeC,
               ),
+              const SizedBox(height: 30),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /* bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         selectedItemColor: CustomTheme.ultramarineBlue,
         type: BottomNavigationBarType.fixed,
@@ -104,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Profile',
           ),
         ],
-      ),
+      ), */
     );
   }
 }

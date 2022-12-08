@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static final CustomTheme _instance = CustomTheme._internal();
 
-  factory CustomTheme() => _instance;
+  factory CustomTheme(Color ceruleanCrayola) => _instance;
 
   CustomTheme._internal();
 

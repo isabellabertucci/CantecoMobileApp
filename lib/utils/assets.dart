@@ -33,4 +33,5 @@ class Assets {
   static const icUserS = "assets/images/user_stroke.svg";
   static const icUtensilsC = "assets/images/utensils_clicked.svg";
   static const icUtensilsU = "assets/images/utensils_unclicked.svg";
+  static const icAdd = "assets/images/add.svg";
 }

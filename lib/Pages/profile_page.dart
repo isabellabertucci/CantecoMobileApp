@@ -90,21 +90,32 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Course',
                               style:
                                   Theme.of(context).primaryTextTheme.subtitle1,
                             ),
+                            const SizedBox(height: 10),
+                            RichText(
+                              text: TextSpan(
+                                style: TextStyle(color: Colors.black),
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        'descrição que nao transborda mas sim vai para baixo',
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle1,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Technical Superior Course in Design and Technologies for Mobile Apps',
-                      style: Theme.of(context).primaryTextTheme.subtitle1,
-                    )
                   ],
                 ),
               ),
@@ -168,7 +179,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     )),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 35),
               Row(
                 children: [
                   Text(

@@ -106,7 +106,7 @@ class CustomTheme {
           color: textColor,
           fontWeight: FontWeight.w500,
           fontFamily: 'inter'),
-      // Sm Caption M
+      // Sm Caption R
       caption: TextStyle(
           fontSize: 10,
           color: textColor,

@@ -1,32 +1,32 @@
+import 'package:canteco_app/utils/assets.dart';
+import 'package:canteco_app/utils/theme.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import '../utils/theme.dart';
 
-class InputData extends StatelessWidget {
-  final TextEditingController controller;
-  final String label;
+class InputDate extends StatelessWidget {
   final String text;
+  final String icon;
 
-  const InputData(
-      {super.key,
-      required this.controller,
-      required this.label,
-      required this.text});
+  const InputDate({
+    super.key,
+    required this.icon,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).primaryTextTheme.headline3,
+    return Card(
+      elevation: 0,
+      color: CustomTheme.cultured,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: ListTile(
+        title: Text(text, style: Theme.of(context).primaryTextTheme.subtitle1),
+        trailing: SvgPicture.asset(
+          Assets.icAngle,
+          height: 25,
+          width: 25,
         ),
-        const SizedBox(height: 10),
-        TextField(
-          controller: controller, /* controlador para  */
-        )
-      ],
+      ),
     );
   }
 }

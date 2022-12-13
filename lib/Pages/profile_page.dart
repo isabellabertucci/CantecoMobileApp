@@ -98,7 +98,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Theme.of(context).primaryTextTheme.subtitle1,
                             ),
                             const SizedBox(height: 10),
-                            RichText(
+                            Container(
+                              child: Text(
+                                'descrição que nao transborda mas sim vai para baixo',
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .subtitle1,
+                              ),
+                            ),
+                            /*   RichText(
                               text: TextSpan(
                                 style: TextStyle(color: Colors.black),
                                 children: [
@@ -111,7 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                 ],
                               ),
-                            ),
+                            ), */
                           ],
                         ),
                       ],

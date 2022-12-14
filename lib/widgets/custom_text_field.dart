@@ -43,15 +43,17 @@ class CustomTextField extends StatelessWidget {
                   labelStyle: Theme.of(context).primaryTextTheme.headline3,
                   hintStyle: Theme.of(context)
                       .primaryTextTheme
-                      .headline3
+                      .subtitle1
                       ?.copyWith(color: CustomTheme.silver),
-                  enabledBorder: const OutlineInputBorder(
+                  enabledBorder: InputBorder.none,
+
+                  /*   enabledBorder: const OutlineInputBorder(
                     borderSide:
                         BorderSide(width: 3, color: CustomTheme.blueCrayola),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
                     ),
-                  ),
+                  ), */
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import '../utils/assets.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
+import '../widgets/input_date.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class CreateAccountPage extends StatefulWidget {
+  const CreateAccountPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<CreateAccountPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<CreateAccountPage> {
   final _TextController = TextEditingController();
   final _PasswordController = TextEditingController();
 
@@ -23,16 +25,30 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Center(
                 child: Text(
-                  'Log in',
+                  'Personal Information',
                   style: Theme.of(context).primaryTextTheme.headline2,
                 ),
               ),
               const SizedBox(height: 40),
               CustomTextField(
-                label: 'Email',
-                hint: 'Enter with your email',
+                label: 'Full name',
+                hint: 'Enter your name',
                 isPassword: false,
                 controller: _TextController,
+              ),
+              const SizedBox(height: 25),
+              CustomTextField(
+                label: 'School Email ',
+                hint: 'Enter your school email',
+                isPassword: false,
+                controller: _TextController,
+              ),
+              const SizedBox(height: 25),
+              CustomTextField(
+                label: 'Type',
+                hint: 'Are you a student? Teacher...',
+                isPassword: true,
+                controller: _PasswordController,
               ),
               const SizedBox(height: 25),
               CustomTextField(
@@ -42,25 +58,22 @@ class _LoginPageState extends State<LoginPage> {
                 controller: _PasswordController,
               ),
               const SizedBox(height: 25),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Forgot your password?',
-                    style: Theme.of(context).primaryTextTheme.headline3,
-                  ),
-                ],
+              CustomTextField(
+                label: 'Confirm Password',
+                hint: 'Confirm password',
+                isPassword: true,
+                controller: _PasswordController,
               ),
               const SizedBox(height: 40),
               CustomButton(
-                text: 'Log in',
+                text: 'Next',
                 onTap: () {},
               ),
-              const SizedBox(height: 260),
+              const SizedBox(height: 54),
               Text(
-                'Don’t have an account? Sign Up',
+                'If you already have an account. Log In',
                 style: Theme.of(context).primaryTextTheme.headline3,
-              )
+              ),
             ],
           ),
         ),

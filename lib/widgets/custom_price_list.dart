@@ -1,3 +1,4 @@
+import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 
 class PriceList extends StatelessWidget {
@@ -13,16 +14,25 @@ class PriceList extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(5)),
-        color: Colors.grey[400],
+        color: CustomTheme.cultured,
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(user),
-            Text('$withoutIva€'),
-            Text('$withIva€'),
+            Text(
+              user,
+              style: Theme.of(context).primaryTextTheme.headline6,
+            ),
+            Text(
+              '$withoutIva€',
+              style: Theme.of(context).primaryTextTheme.subtitle2,
+            ),
+            Text(
+              '$withIva€',
+              style: Theme.of(context).primaryTextTheme.subtitle2,
+            ),
           ],
         ),
       ),

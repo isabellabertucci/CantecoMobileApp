@@ -1,5 +1,7 @@
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:canteco_app/utils/assets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -87,6 +89,27 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const SizedBox(height: 35),
                     Row(
+                      children: [
+                        Text(
+                          'Course',
+                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                          'Technical Superior Course in Design and Technologies for Mobile Apps',
+                          style: Theme.of(context).primaryTextTheme.subtitle1,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ))
+                      ],
+                    ),
+
+                    /* Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Column(
@@ -98,13 +121,17 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Theme.of(context).primaryTextTheme.subtitle1,
                             ),
                             const SizedBox(height: 10),
-                            Container(
-                              child: Text(
-                                'descrição que nao transborda mas sim vai para baixo',
-                                style: Theme.of(context)
-                                    .primaryTextTheme
-                                    .subtitle1,
-                              ),
+                            Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    'Technical Superior Course in Design and Technologies for Mobile Apps',
+                                    style: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle1,
+                                  ),
+                                ),
+                              ],
                             ),
                             /*   RichText(
                               text: TextSpan(
@@ -123,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                       ],
-                    ),
+                    ), */
                   ],
                 ),
               ),
@@ -190,10 +217,15 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 35),
               Row(
                 children: [
+                  SvgPicture.asset(
+                    Assets.icLogoutU,
+                    height: 20,
+                  ),
+                  const SizedBox(width: 10),
                   Text(
                     'Log Out',
                     style: Theme.of(context).primaryTextTheme.subtitle1,
-                  )
+                  ),
                 ],
               )
             ],

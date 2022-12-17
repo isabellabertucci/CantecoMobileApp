@@ -25,6 +25,7 @@ class InputSearch extends StatelessWidget {
           decoration: InputDecoration(
             border: InputBorder.none,
             /* border foitirar a linha que cria do textField */
+
             hintText: hint,
             hintStyle: Theme.of(context)
                 .primaryTextTheme
@@ -33,7 +34,7 @@ class InputSearch extends StatelessWidget {
             suffixIcon: IconButton(
               onPressed: null,
               /* ele é um icon button */
-              icon: SvgPicture.asset(icon, width: 20, height: 20),
+              icon: SvgPicture.asset(icon, width: 25, height: 25),
             ),
           ),
         ),

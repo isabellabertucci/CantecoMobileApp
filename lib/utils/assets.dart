@@ -7,7 +7,9 @@ class Assets {
   Assets._internal();
 
   static const icLogo = "assets/images/logo.svg";
+  static const icLogoP = "assets/images/logoP.png";
   static const icLogoT = "assets/images/logo_txt.svg";
+  static const icmProfile = "assets/images/img_profile.svg";
 
   static const icAngle = "assets/images/angle_down.svg";
   static const icArrowL = "assets/images/arrow_left.svg";

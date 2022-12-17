@@ -17,22 +17,26 @@ class CustomScheduleB extends StatelessWidget {
       elevation: 2,
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
-        height: 50,
+        height: 60,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(text,
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .headline3
-                      ?.copyWith(color: CustomTheme.white)),
-              SvgPicture.asset(
-                assetName,
-                width: 30,
-                height: 30,
-              ),
+              Expanded(
+                  flex: 9,
+                  child: Text(text,
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .headline3
+                          ?.copyWith(color: CustomTheme.white))),
+              Expanded(
+                  flex: 1,
+                  child: SvgPicture.asset(
+                    assetName,
+                    width: 30,
+                    height: 30,
+                  )),
             ],
           ),
         ),

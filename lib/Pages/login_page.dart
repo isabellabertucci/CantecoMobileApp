@@ -1,6 +1,9 @@
+import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:canteco_app/utils/assets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -21,6 +24,12 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              const SizedBox(height: 50),
+              SvgPicture.asset(
+                Assets.icCalendar,
+                height: 48,
+              ),
+              const SizedBox(height: 40),
               Center(
                 child: Text(
                   'Log in',
@@ -40,16 +49,6 @@ class _LoginPageState extends State<LoginPage> {
                 hint: 'Enter with your password',
                 isPassword: true,
                 controller: _PasswordController,
-              ),
-              const SizedBox(height: 25),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Forgot your password?',
-                    style: Theme.of(context).primaryTextTheme.headline3,
-                  ),
-                ],
               ),
               const SizedBox(height: 40),
               CustomButton(

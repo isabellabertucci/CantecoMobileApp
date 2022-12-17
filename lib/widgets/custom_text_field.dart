@@ -5,19 +5,21 @@ import '../utils/theme.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
+
   bool isPassword;
 
   final String label;
   final String hint;
   final String? tralingIcon;
 
-  CustomTextField(
-      {super.key,
-      required this.controller,
-      required this.label,
-      this.isPassword = false,
-      required this.hint,
-      this.tralingIcon});
+  CustomTextField({
+    super.key,
+    required this.controller,
+    required this.label,
+    this.isPassword = false,
+    required this.hint,
+    this.tralingIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +35,11 @@ class CustomTextField extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: TextField(
+              child: TextFormField(
                 controller: controller,
                 obscureText: isPassword,
                 decoration: InputDecoration(
+                  border: InputBorder.none,
                   filled: true,
                   fillColor: CustomTheme.cultured,
                   hintText: hint,
@@ -54,11 +57,6 @@ class CustomTextField extends StatelessWidget {
                       Radius.circular(10.0),
                     ),
                   ), */
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ),
-                  ),
                 ),
               ),
             ),

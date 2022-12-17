@@ -10,14 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class Test extends StatefulWidget {
+  const Test({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<Test> createState() => _TestState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _TestState extends State<Test> {
   TextEditingController controller = TextEditingController();
   TextEditingController controller2 = TextEditingController();
 
@@ -35,12 +35,15 @@ class _MainScreenState extends State<MainScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButton(
+                backgroundColor: CustomTheme.cultured,
+                textColor: CustomTheme.skyBlueCrayola,
                 text: "test",
                 onTap: () => {},
               ),
               const SizedBox(height: 16),
               CustomButton(
                 text: "test",
+                disableBackgroundColor: CustomTheme.skyBlueCrayola,
                 enabled: false,
                 onTap: () => {},
               ),

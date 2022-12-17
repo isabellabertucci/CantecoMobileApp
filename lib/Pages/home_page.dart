@@ -19,7 +19,6 @@ class _HomePagestate extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('CANTECO')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),

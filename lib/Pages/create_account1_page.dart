@@ -1,17 +1,18 @@
+import 'package:canteco_app/widgets/input_search.dart';
 import 'package:flutter/material.dart';
 import '../utils/assets.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/input_date.dart';
 
-class CreateAccountPage extends StatefulWidget {
-  const CreateAccountPage({super.key});
+class CreateAccountPage1 extends StatefulWidget {
+  const CreateAccountPage1({super.key});
 
   @override
-  State<CreateAccountPage> createState() => _LoginPageState();
+  State<CreateAccountPage1> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<CreateAccountPage> {
+class _LoginPageState extends State<CreateAccountPage1> {
   final _TextController = TextEditingController();
   final _PasswordController = TextEditingController();
 
@@ -45,15 +46,8 @@ class _LoginPageState extends State<CreateAccountPage> {
               ),
               const SizedBox(height: 25),
               CustomTextField(
-                label: 'Type',
-                hint: 'Are you a student? Teacher...',
-                isPassword: true,
-                controller: _PasswordController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
                 label: 'Password',
-                hint: 'Enter with your password',
+                hint: 'Enter your password',
                 isPassword: true,
                 controller: _PasswordController,
               ),

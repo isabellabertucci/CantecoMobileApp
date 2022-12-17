@@ -1,7 +1,11 @@
+import 'package:canteco_app/Pages/create_account2_page.dart';
 import 'package:canteco_app/Pages/home_page.dart';
+import 'package:canteco_app/Pages/homepage1_page.dart';
+import 'package:canteco_app/Pages/onboarding.dart';
 import 'package:canteco_app/Pages/profile_page.dart';
 import 'package:canteco_app/Pages/search_pageD.dart';
 import 'package:canteco_app/Pages/serach_page.dart';
+import 'package:canteco_app/Pages/test.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'Pages/create_account1_page.dart';
@@ -9,6 +13,7 @@ import 'Pages/login_page.dart';
 import 'Pages/main_screen.dart';
 import 'Pages/menu_stats.dart';
 import 'Pages/price_list_page.dart';
+import 'Pages/validate_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Canteco',
       theme: CustomTheme.lightMode(context),
       themeMode: ThemeMode.light,
-      home: const PriceListPage(),
+      home: const LoginPage(),
       /* MenuStats */
       debugShowCheckedModeBanner: false,
     );

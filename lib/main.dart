@@ -1,18 +1,17 @@
-import 'package:canteco_app/Pages/create_account2_page.dart';
-import 'package:canteco_app/Pages/home_page.dart';
-import 'package:canteco_app/Pages/homepage1_page.dart';
-import 'package:canteco_app/Pages/onboarding.dart';
-import 'package:canteco_app/Pages/profile_page.dart';
-import 'package:canteco_app/Pages/search_pageD.dart';
-import 'package:canteco_app/Pages/serach_page.dart';
+import 'package:canteco_app/Pages/4_onboarding.dart';
+import 'package:canteco_app/Pages/6_home_page.dart';
+import 'package:canteco_app/Pages/9_profile_page.dart';
+import 'package:canteco_app/Pages/8_search_page.dart';
 import 'package:canteco_app/Pages/test.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'Pages/create_account1_page.dart';
-import 'Pages/login_page.dart';
-import 'Pages/main_screen.dart';
-import 'Pages/menu_stats.dart';
-import 'Pages/price_list_page.dart';
+import 'Pages/1_login_page.dart';
+import 'Pages/3_sign_up_page.dart';
+import 'Pages/5_1_your_schedules.dart';
+import 'Pages/5_menu_screen.dart';
+import 'Pages/7_meals_page.dart';
+import 'Pages/7_1_menu_stats.dart';
+import 'Pages/5_2_price_list_page.dart';
 import 'Pages/validate_page.dart';
 
 void main() {
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Canteco',
       theme: CustomTheme.lightMode(context),
       themeMode: ThemeMode.light,
-      home: const LoginPage(),
+      home: const MySchedules(),
       /* MenuStats */
       debugShowCheckedModeBanner: false,
     );

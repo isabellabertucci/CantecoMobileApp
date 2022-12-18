@@ -28,26 +28,21 @@ class ItemStats extends StatelessWidget {
           children: [
             Text(
               itemName,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.black87,
-              ),
+              style: Theme.of(context).primaryTextTheme.headline3,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 5.0),
               child: Text(
                 quantity,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey,
-                ),
+                style: Theme.of(context).textTheme.subtitle2,
               ),
             ),
           ],
         ),
-        subtitle: Text(impact.toString() + ' liters'),
+        subtitle: Text(
+          impact.toString() + ' liters',
+          style: Theme.of(context).primaryTextTheme.bodyText1,
+        ),
         trailing: Container(
           height: 10,
           width: 10,
@@ -63,13 +58,19 @@ class ItemStats extends StatelessWidget {
 
 class ItemStatsSimple extends StatelessWidget {
   final String itemName;
-  final String quantity;
 
   const ItemStatsSimple({
     Key? key,
     required this.itemName,
-    required this.quantity,
   }) : super(key: key);
+
+  /*  final List<Items> items_data = [
+    ItemStatsSimple(itemName: 'Rice'),
+    ItemStatsSimple(itemName: 'Beans'),
+    ItemStatsSimple(itemName: 'Meat'),
+    ItemStatsSimple(itemName: 'Tuna'),
+    ItemStatsSimple(itemName: 'Pasta'),
+  ]; */
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +90,7 @@ class ItemStatsSimple extends StatelessWidget {
             color: Colors.black87,
           ),
         ),
-        subtitle: Text(quantity),
+        subtitle: Text('1kg'),
       ),
     );
   }

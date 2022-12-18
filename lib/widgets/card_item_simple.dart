@@ -4,13 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CardItemSimple extends StatelessWidget {
   final String itemName;
-  final String quantity;
   final String icon;
 
   CardItemSimple({
     super.key,
     required this.itemName,
-    required this.quantity,
     required this.icon,
   });
 
@@ -28,7 +26,7 @@ class CardItemSimple extends StatelessWidget {
         ),
         title:
             Text(itemName, style: Theme.of(context).primaryTextTheme.subtitle1),
-        subtitle: Text(quantity, style: Theme.of(context).textTheme.bodyText1),
+        subtitle: Text('1kg', style: Theme.of(context).textTheme.bodyText1),
       ),
     );
   }

@@ -24,14 +24,12 @@ class NutriStats extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              statsNumber.toString(),
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-            ),
+            Text(statsNumber.toString(),
+                style: Theme.of(context).primaryTextTheme.subtitle1),
             SizedBox(height: 2),
             Text(
               statsInfo,
-              style: TextStyle(fontSize: 10),
+              style: Theme.of(context).textTheme.caption,
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 class Food {
-  final String itenName;
-  final String quatity;
+  final String itemName;
 
-  Food({required this.itenName, required this.quatity});
+  Food({required this.itemName});
 }

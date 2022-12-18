@@ -1,4 +1,3 @@
-import 'package:canteco_app/Pages/homepage1_page.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 

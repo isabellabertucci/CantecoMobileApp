@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/theme.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
+  final formKey = GlobalKey<FormState>();
 
   bool isPassword;
 
@@ -36,6 +36,8 @@ class CustomTextField extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                key: formKey,
                 controller: controller,
                 obscureText: isPassword,
                 decoration: InputDecoration(

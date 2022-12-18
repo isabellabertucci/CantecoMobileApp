@@ -10,16 +10,45 @@ class ButtonLunchDinner extends StatelessWidget {
         Tab(
           child: Text(
             'Lunch',
-            style: TextStyle(fontSize: 16),
+            style: Theme.of(context).textTheme.headline3,
           ),
         ),
         Tab(
           child: Text(
             'Dinner',
-            style: TextStyle(fontSize: 16),
+            style: Theme.of(context).textTheme.headline3,
           ),
         ),
       ],
     );
   }
 }
+
+/* final List<CardMealsMenu> cards_data = [
+  Expanded(
+                    child: CardMealsMenu(
+                      assetName: Assets.icDatabase,
+                      text: 'Tuna pasta',
+                      itemKcal: '155 Kcal',
+                    ),
+                  ),
+  Expanded(
+                    child: CardMealsMenu(
+                      assetName: Assets.icDatabase,
+                      text: 'Tuna pasta',
+                      itemKcal: '155 Kcal',
+                    ),
+                  ),Expanded(
+                    child: CardMealsMenu(
+                      assetName: Assets.icDatabase,
+                      text: 'Tuna pasta',
+                      itemKcal: '155 Kcal',
+                    ),
+                  ),Expanded(
+                    child: CardMealsMenu(
+                      assetName: Assets.icDatabase,
+                      text: 'Tuna pasta',
+                      itemKcal: '155 Kcal',
+                    ),
+                  ),
+]; */

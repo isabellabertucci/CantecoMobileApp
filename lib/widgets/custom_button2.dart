@@ -6,6 +6,7 @@ class CustomButton2 extends StatelessWidget {
   double? width;
   Color? textColor;
   Color? backgroundColor;
+  Color? disableBackgroundColor;
   bool enabled;
 
   CustomButton2({
@@ -15,17 +16,26 @@ class CustomButton2 extends StatelessWidget {
     this.width,
     this.textColor,
     this.backgroundColor,
+    this.disableBackgroundColor,
     this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
+      width: width ?? MediaQuery.of(context).size.width / 2,
       height: 50,
       child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            elevation: 0,
+            backgroundColor: backgroundColor,
+            disabledBackgroundColor: disableBackgroundColor),
         onPressed: enabled ? () => onTap() : null,
-        child: Text(text),
+        child: Text(
+          text,
+          style:
+              Theme.of(context).textTheme.headline2?.copyWith(color: textColor),
+        ),
       ),
     );
   }

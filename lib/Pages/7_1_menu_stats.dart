@@ -83,11 +83,7 @@ class _MenuStatstate extends State<MenuStats> {
               ),
               Text(
                 'Nutritional Value',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
+                style: Theme.of(context).primaryTextTheme.headline1,
               ),
 
               /* NUTRISTATS */

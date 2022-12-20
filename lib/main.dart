@@ -12,6 +12,7 @@ import 'Pages/5_menu_screen.dart';
 import 'Pages/7_meals_page.dart';
 import 'Pages/7_1_menu_stats.dart';
 import 'Pages/5_2_price_list_page.dart';
+import 'Pages/8_1_item_page.dart';
 import 'Pages/validate_page.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Canteco',
       theme: CustomTheme.lightMode(context),
       themeMode: ThemeMode.light,
-      home: const MySchedules(),
+      home: const LoginPage(),
       /* MenuStats */
       debugShowCheckedModeBanner: false,
     );

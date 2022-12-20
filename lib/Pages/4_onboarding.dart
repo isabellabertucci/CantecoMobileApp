@@ -2,6 +2,7 @@ import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '5_menu_screen.dart';
 
@@ -13,7 +14,7 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  late PageController _pageController;
+  PageController _pageController = PageController();
 
   @override
   void initState() {
@@ -88,16 +89,6 @@ class Tutorial extends StatelessWidget {
                     duration: Duration(microseconds: 5000), curve: Curves.ease);
               },
             ),
-            /* Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: ElevatedButton(
-                  onPressed: () {
-                    _pageController.nextPage(
-                        duration: Duration(microseconds: 5000),
-                        curve: Curves.ease);
-                  },
-                  child: Text('button')),
-            ), */
           ],
         ),
       ),
@@ -157,6 +148,7 @@ class OnboardContent extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
+          /*  SmoothPageIndicator(controller: _pageController, count: 3), */
           Text(
             title,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),

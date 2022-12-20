@@ -15,6 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   email_validator: ^2.0.1
+  smooth_page_indicator: ^1.0.0+2
   
 
   

@@ -58,10 +58,12 @@ class ItemStats extends StatelessWidget {
 
 class ItemStatsSimple extends StatelessWidget {
   final String itemName;
+  final String type;
 
   const ItemStatsSimple({
     Key? key,
     required this.itemName,
+    required this.type,
   }) : super(key: key);
 
   /*  final List<Items> items_data = [
@@ -90,7 +92,10 @@ class ItemStatsSimple extends StatelessWidget {
             color: Colors.black87,
           ),
         ),
-        subtitle: Text('1kg'),
+        subtitle: Text(
+          type,
+          style: Theme.of(context).primaryTextTheme.bodyText1,
+        ),
       ),
     );
   }

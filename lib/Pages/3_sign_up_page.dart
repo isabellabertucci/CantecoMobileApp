@@ -66,7 +66,7 @@ class _LoginPageState extends State<SignUpPageSec> {
                 isPassword: false,
                 controller: _SchoolNumController,
               ),
-              const SizedBox(height: 130),
+              Spacer(),
               Row(
                 children: [
                   Expanded(
@@ -100,6 +100,7 @@ class _LoginPageState extends State<SignUpPageSec> {
                   ),
                 ],
               ),
+              Spacer(),
               const SizedBox(height: 45),
               RichText(
                 text: TextSpan(
@@ -125,6 +126,7 @@ class _LoginPageState extends State<SignUpPageSec> {
                   ],
                 ),
               ),
+              Spacer(flex: 2),
             ],
           ),
         ),

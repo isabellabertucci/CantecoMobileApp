@@ -65,7 +65,9 @@ class _LoginPageState extends State<SignUpPageMain> {
                 isPassword: true,
                 controller: _ConfirmPasController,
               ),
-              const SizedBox(height: 40),
+              Spacer(
+                flex: 2,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -82,7 +84,8 @@ class _LoginPageState extends State<SignUpPageMain> {
                   ),
                 ],
               ),
-              const SizedBox(height: 54),
+              Spacer(),
+              const SizedBox(height: 45),
               RichText(
                 text: TextSpan(
                   style: TextStyle(color: Colors.black, fontSize: 16),
@@ -107,6 +110,7 @@ class _LoginPageState extends State<SignUpPageMain> {
                   ],
                 ),
               ),
+              Spacer(flex: 4),
             ],
           ),
         ),

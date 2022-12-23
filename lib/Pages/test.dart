@@ -1,14 +1,10 @@
 import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/utils/theme.dart';
-import 'package:canteco_app/widgets/custom_buttom_home.dart';
-
 import 'package:canteco_app/widgets/custom_card.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
-import 'package:canteco_app/widgets/custom_imputs.dart';
 import 'package:canteco_app/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/material.dart';
 
 class Test extends StatefulWidget {
   const Test({super.key});

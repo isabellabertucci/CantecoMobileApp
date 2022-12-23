@@ -1,6 +1,5 @@
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomScheduleB extends StatelessWidget {

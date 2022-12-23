@@ -1,4 +1,3 @@
-import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';

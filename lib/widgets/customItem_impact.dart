@@ -20,7 +20,7 @@ class ItemStats extends StatelessWidget {
       child: ListTile(
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             FlutterLogo(),
           ],
         ),
@@ -40,7 +40,7 @@ class ItemStats extends StatelessWidget {
           ],
         ),
         subtitle: Text(
-          impact.toString() + ' liters',
+          '$impact liters',
           style: Theme.of(context).primaryTextTheme.bodyText1,
         ),
         trailing: Container(
@@ -80,13 +80,13 @@ class ItemStatsSimple extends StatelessWidget {
       child: ListTile(
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             FlutterLogo(),
           ],
         ),
         title: Text(
           itemName,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
             color: Colors.black87,

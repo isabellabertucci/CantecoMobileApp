@@ -1,19 +1,18 @@
-import 'package:canteco_app/Pages/4_onboarding.dart';
-import 'package:canteco_app/Pages/6_home_page.dart';
-import 'package:canteco_app/Pages/9_profile_page.dart';
-import 'package:canteco_app/Pages/8_search_page.dart';
-import 'package:canteco_app/Pages/test.dart';
+import 'package:canteco_app/Pages/login/onboarding.dart';
+import 'package:canteco_app/Pages/login/sign_up_page.dart';
+import 'package:canteco_app/Pages/login/sign_up_page_sec.dart';
+import 'package:canteco_app/Pages/main/home/my_schedules.dart';
+import 'package:canteco_app/Pages/main/home/price_list_page.dart';
+import 'package:canteco_app/Pages/main/menu_screen.dart';
+import 'package:canteco_app/Pages/main/meals/menu_stats.dart';
+import 'package:canteco_app/Pages/main/meals/meals_page.dart';
+import 'package:canteco_app/Pages/main/search/item_page.dart';
+import 'package:canteco_app/Pages/main/search/search_page.dart';
+import 'package:canteco_app/Pages/main/profile/profile_page.dart';
+import 'package:canteco_app/utils/routes.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
-import 'Pages/1_login_page.dart';
-import 'Pages/3_sign_up_page.dart';
-import 'Pages/5_1_your_schedules.dart';
-import 'Pages/5_menu_screen.dart';
-import 'Pages/7_meals_page.dart';
-import 'Pages/7_1_menu_stats.dart';
-import 'Pages/5_2_price_list_page.dart';
-import 'Pages/8_1_item_page.dart';
-import 'Pages/validate_page.dart';
+import 'Pages/login/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,9 +27,26 @@ class MyApp extends StatelessWidget {
       title: 'Canteco',
       theme: CustomTheme.lightMode(context),
       themeMode: ThemeMode.light,
-      home: const LoginPage(),
-      /* MenuStats */
       debugShowCheckedModeBanner: false,
+      initialRoute: Routes.loginPage,
+      routes: getRoutes(context),
     );
+  }
+
+  Map<String, WidgetBuilder> getRoutes(BuildContext context) {
+    return <String, WidgetBuilder>{
+      Routes.loginPage: (context) => const LoginPage(),
+      Routes.signUpMain: (context) => const SignUpPageMain(),
+      Routes.signUpSec: (context) => const SignUpPageSec(),
+      Routes.onboardingPage: (context) => const OnBoarding(),
+      Routes.menuPage: (context) => const MainScreen(),
+      Routes.yourSchedulePage: (context) => const MySchedules(),
+      Routes.priceListPage: (context) => const PriceListPage(),
+      Routes.mealsPage: (context) => const MealsPage(),
+      Routes.menuStatsPage: (context) => const MenuStats(),
+      Routes.searchPage: (context) => const SearchPage(),
+      Routes.itemPage: (context) => const ItemPage(),
+      Routes.profilePage: (context) => const ProfilePage(),
+    };
   }
 }

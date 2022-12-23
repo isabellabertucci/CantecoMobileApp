@@ -26,7 +26,7 @@ class NutriStats extends StatelessWidget {
           children: [
             Text(statsNumber.toString(),
                 style: Theme.of(context).primaryTextTheme.subtitle1),
-            SizedBox(height: 2),
+            const SizedBox(height: 2),
             Text(
               statsInfo,
               style: Theme.of(context).textTheme.caption,

@@ -1,4 +1,3 @@
-import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -6,7 +5,7 @@ class CardItemSimple extends StatelessWidget {
   final String itemName;
   final String icon;
 
-  CardItemSimple({
+  const CardItemSimple({
     super.key,
     required this.itemName,
     required this.icon,

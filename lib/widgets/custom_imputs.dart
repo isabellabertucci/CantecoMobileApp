@@ -1,4 +1,3 @@
-import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'custom_button.dart';
 
@@ -15,7 +14,7 @@ class CustomInputs extends StatelessWidget {
         Expanded(
           flex: 1,
           child: CustomButton(
-            text: 'oiii',
+            text: 'teste',
             onTap: () => {},
           ),
         ),
@@ -23,7 +22,7 @@ class CustomInputs extends StatelessWidget {
         Expanded(
           flex: 1,
           child: CustomButton(
-            text: 'test3',
+            text: 'test2',
             onTap: () => {},
           ),
         ),

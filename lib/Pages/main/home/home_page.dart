@@ -1,5 +1,6 @@
 import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
+import '../../../utils/routes.dart';
 import '../../../widgets/custom_buttom_home.dart';
 import '../../../widgets/schedule_buttom.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,26 +24,30 @@ class _HomePagestate extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
-                children: const [
+                children: [
                   Expanded(
                     child: CustomButtonHome(
                       assetName: Assets.icCalendar,
                       text: "Schedules",
+                      onTap: () =>
+                          Navigator.pushNamed(context, Routes.yourSchedulePage),
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: CustomButtonHome(
-                      assetName: Assets.icPrice,
-                      text: "Price List",
-                    ),
+                        assetName: Assets.icPrice,
+                        text: "Price List",
+                        onTap: () =>
+                            Navigator.pushNamed(context, Routes.priceListPage)),
                   )
                 ],
               ),
               const SizedBox(height: 20),
-              const CustomScheduleB(
+              CustomScheduleB(
                 text: 'Schedule your meal',
                 assetName: Assets.icAdd,
+                onTap: () => Navigator.pushNamed(context, Routes.mealsPage),
               ),
             ],
           ),

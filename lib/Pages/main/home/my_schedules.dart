@@ -19,7 +19,6 @@ class _MySchedulesState extends State<MySchedules> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              /* topbar */
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

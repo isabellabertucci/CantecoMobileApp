@@ -42,11 +42,14 @@ class _OnBoardingState extends State<OnBoarding> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const Text('skip'),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    SvgPicture.asset(Assets.icArrowR)
+                    const Spacer(),
+                    Text('Skip',
+                        style: Theme.of(context).primaryTextTheme.headline6),
+                    const SizedBox(width: 15),
+                    SvgPicture.asset(
+                      Assets.icArrowR,
+                      height: 18,
+                    )
                   ],
                 ),
               ),
@@ -75,6 +78,9 @@ class _OnBoardingState extends State<OnBoarding> {
                         curve: Curves.ease);
               },
             ),
+            const SizedBox(
+              height: 100,
+            )
           ],
         ),
       ),
@@ -92,7 +98,7 @@ class Onboard {
 // ignore: non_constant_identifier_names
 final List<Onboard> demo_data = [
   Onboard(
-    image: "assets/images/onboard_2.svg",
+    image: "assets/images/onboard_1.svg",
     title: "A Project",
     description:
         'Through an eco-school project we have redesigned the app so each of us can make more conscious decisions of what we eat and how that impacts our future.',
@@ -137,7 +143,7 @@ class OnboardContent extends StatelessWidget {
           ),
           Text(
             title,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style: Theme.of(context).primaryTextTheme.headline1,
           ),
           const SizedBox(
             height: 20,
@@ -145,6 +151,7 @@ class OnboardContent extends StatelessWidget {
           Text(
             textAlign: TextAlign.center,
             description,
+            style: Theme.of(context).primaryTextTheme.subtitle1,
           ),
           const Spacer(),
         ],

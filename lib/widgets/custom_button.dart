@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final Function onTap;
-  double? width;
-  Color? textColor;
-  Color? backgroundColor;
-  Color? disableBackgroundColor;
-  bool enabled;
+  final double? width;
+  final Color? textColor;
+  final Color? backgroundColor;
+  final Color? disableBackgroundColor;
+  final bool enabled;
 
-  CustomButton({
+  const CustomButton({
     super.key,
     required this.text,
     required this.onTap,

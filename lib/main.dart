@@ -3,6 +3,7 @@ import 'package:canteco_app/Pages/login/sign_up_page.dart';
 import 'package:canteco_app/Pages/login/sign_up_page_sec.dart';
 import 'package:canteco_app/Pages/main/home/my_schedules.dart';
 import 'package:canteco_app/Pages/main/home/price_list_page.dart';
+import 'package:canteco_app/Pages/main/meals/schedules_history.dart';
 import 'package:canteco_app/Pages/main/menu_screen.dart';
 import 'package:canteco_app/Pages/main/meals/menu_stats.dart';
 import 'package:canteco_app/Pages/main/meals/meals_page.dart';
@@ -41,8 +42,10 @@ class MyApp extends StatelessWidget {
       Routes.onboardingPage: (context) => const OnBoarding(),
       Routes.menuPage: (context) => const MainScreen(),
       Routes.yourSchedulePage: (context) => const MySchedules(),
+      Routes.yourScheduleHistoryPage: (context) => const MyHistorySchedules(),
       Routes.priceListPage: (context) => const PriceListPage(),
       Routes.mealsPage: (context) => const MealsPage(),
+      Routes.individualItemPage: (context) => const ItemPage(),
       Routes.menuStatsPage: (context) => const MenuStats(),
       Routes.searchPage: (context) => const SearchPage(),
       Routes.itemPage: (context) => const ItemPage(),

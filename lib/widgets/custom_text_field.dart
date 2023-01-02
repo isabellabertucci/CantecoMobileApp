@@ -5,7 +5,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final formKey = GlobalKey<FormState>();
 
-  bool isPassword;
+  final bool isPassword;
 
   final String label;
   final String hint;

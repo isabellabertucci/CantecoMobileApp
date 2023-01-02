@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../utils/assets.dart';
+import '../../../utils/routes.dart';
 import '../../../widgets/custom_schedules_meal.dart';
 
 class MySchedules extends StatefulWidget {
@@ -22,19 +23,31 @@ class _MySchedulesState extends State<MySchedules> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SvgPicture.asset(
-                    Assets.icArrowL,
-                    height: 25,
-                    width: 25,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, Routes.menuPage, (route) => false);
+                    },
+                    child: SvgPicture.asset(
+                      Assets.icArrowL,
+                      height: 25,
+                      width: 25,
+                    ),
                   ),
                   Text(
                     'Your Schedules',
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
-                  SvgPicture.asset(
-                    Assets.icClockC,
-                    height: 25,
-                    width: 25,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamedAndRemoveUntil(context,
+                          Routes.yourScheduleHistoryPage, (route) => false);
+                    },
+                    child: SvgPicture.asset(
+                      Assets.icClockC,
+                      height: 25,
+                      width: 25,
+                    ),
                   ),
                 ],
               ),
@@ -87,7 +100,7 @@ class _MySchedulesState extends State<MySchedules> {
                 mealName: 'Fish Pasta',
                 time: 'Lunch from 12:30 - 14:30',
                 kcal: 359,
-                icon: Assets.icHomeU,
+                icon: Assets.icTrashU,
               ),
               const SizedBox(
                 height: 20,

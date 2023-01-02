@@ -20,91 +20,94 @@ class _LoginPageState extends State<SignUpPageSec> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Center(
-                child: Text(
-                  'School Information',
-                  style: Theme.of(context).primaryTextTheme.headline2,
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Center(
+                  child: Text(
+                    'School Information',
+                    style: Theme.of(context).primaryTextTheme.headline2,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 40),
-              CustomTextField(
-                label: 'Instituition',
-                hint: 'Enter your Instituition',
-                isPassword: false,
-                controller: _instituitionController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                label: 'School name',
-                hint: 'Enter your School name',
-                isPassword: false,
-                controller: _schoolController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                label: 'Course name',
-                hint: 'Enter your Course name',
-                isPassword: false,
-                controller: _courseController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                label: 'School number ',
-                hint: 'Enter your School number ',
-                isPassword: false,
-                controller: _schoolNumController,
-              ),
-              const Spacer(),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomButton2(
-                        backgroundColor: const Color.fromARGB(255, 236, 236,
-                            236), //mudei o cultured pois nao se via, (nao fica igual ao design)
-                        textColor: CustomTheme.ultramarineBlue,
-                        text: 'Back',
-                        onTap: () =>
-                            Navigator.pushNamed(context, Routes.signUpMain)),
-                  ),
-                  const SizedBox(width: 20),
-                  Expanded(
-                    child: CustomButton2(
-                        textColor: CustomTheme.white,
-                        text: 'Create',
-                        onTap: () =>
-                            Navigator.pushNamed(context, Routes.loginPage)),
-                  ),
-                ],
-              ),
-              const Spacer(),
-              const SizedBox(height: 45),
-              RichText(
-                text: TextSpan(
-                  style: const TextStyle(color: Colors.black, fontSize: 16),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'If you already have an account. ',
-                      style: Theme.of(context).textTheme.headline2,
+                const SizedBox(height: 40),
+                CustomTextField(
+                  label: 'Instituition',
+                  hint: 'Enter your Instituition',
+                  isPassword: false,
+                  controller: _instituitionController,
+                ),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  label: 'School name',
+                  hint: 'Enter your School name',
+                  isPassword: false,
+                  controller: _schoolController,
+                ),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  label: 'Course name',
+                  hint: 'Enter your Course name',
+                  isPassword: false,
+                  controller: _courseController,
+                ),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  label: 'School number ',
+                  hint: 'Enter your School number ',
+                  isPassword: false,
+                  controller: _schoolNumController,
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomButton2(
+                          backgroundColor: const Color.fromARGB(255, 236, 236,
+                              236), //mudei o cultured pois nao se via, (nao fica igual ao design)
+                          textColor: CustomTheme.ultramarineBlue,
+                          text: 'Back',
+                          onTap: () =>
+                              Navigator.pushNamed(context, Routes.signUpMain)),
                     ),
-                    TextSpan(
-                        text: 'Log In',
-                        style: const TextStyle(
-                            color: CustomTheme.ultramarineBlue,
-                            fontWeight: FontWeight.bold),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () =>
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: CustomButton2(
+                          textColor: CustomTheme.white,
+                          text: 'Create',
+                          onTap: () =>
                               Navigator.pushNamed(context, Routes.loginPage)),
+                    ),
                   ],
                 ),
-              ),
-              const Spacer(flex: 2),
-            ],
+                const Spacer(),
+                const SizedBox(height: 45),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black, fontSize: 16),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'If you already have an account. ',
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      TextSpan(
+                          text: 'Log In',
+                          style: const TextStyle(
+                              color: CustomTheme.ultramarineBlue,
+                              fontWeight: FontWeight.bold),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () =>
+                                Navigator.pushNamed(context, Routes.loginPage)),
+                    ],
+                  ),
+                ),
+                const Spacer(flex: 2),
+              ],
+            ),
           ),
         ),
       ),

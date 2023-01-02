@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../../utils/assets.dart';
 import '../../../utils/theme.dart';
 import '../../../widgets/customItem_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemPage extends StatefulWidget {
   const ItemPage({super.key});
@@ -21,20 +23,34 @@ class _ItemPageState extends State<ItemPage> {
             children: [
               /* title */
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset(
+                      Assets.icArrowL,
+                      height: 25,
+                      width: 25,
+                    ),
+                  ),
                   Text(
-                    'Tuna',
+                    'Item Name',
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
+                  const SizedBox(
+                    width: 25,
+                    height: 25,
+                  )
                 ],
               ),
-              const SizedBox(height: 70),
+              const SizedBox(height: 50),
               /* image */
               /* */
               Container(
-                width: 200.0,
-                height: 200.0,
+                width: 180.0,
+                height: 180.0,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -42,8 +58,8 @@ class _ItemPageState extends State<ItemPage> {
                         color: CustomTheme.ultramarineBlue, width: 8)),
                 // inner one
                 child: Container(
-                  width: 140.0,
-                  height: 140.0,
+                  width: 135.0,
+                  height: 135.0,
                   alignment: Alignment.center,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
@@ -51,7 +67,7 @@ class _ItemPageState extends State<ItemPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 50),
               Text(
                 'Nutritional Value',
                 style: Theme.of(context).primaryTextTheme.headline1,

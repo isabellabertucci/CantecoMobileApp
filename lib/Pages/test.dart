@@ -53,13 +53,13 @@ class _TestState extends State<Test> {
                 isPassword: true,
               ),
               const SizedBox(height: 30),
-              CustomCard(
+              const CustomCard(
                 title: "title",
                 subtitle: "subtitle",
                 icon: Assets.icHomeC,
               ),
               const SizedBox(height: 30),
-              CustomCard(
+              const CustomCard(
                 title: "title",
                 subtitle: "subtitle",
                 icon: Assets.icHomeC,

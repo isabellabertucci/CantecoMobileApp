@@ -6,8 +6,11 @@ class PriceList extends StatelessWidget {
   final String withoutIva;
   final String withIva;
 
-  PriceList(
-      {required this.user, required this.withoutIva, required this.withIva});
+  const PriceList(
+      {super.key,
+      required this.user,
+      required this.withoutIva,
+      required this.withIva});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +23,28 @@ class PriceList extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              user,
-              style: Theme.of(context).primaryTextTheme.headline6,
+            SizedBox(
+              width: 85,
+              child: Text(
+                user,
+                style: Theme.of(context).primaryTextTheme.headline6,
+              ),
             ),
-            Text(
-              '$withoutIva€',
-              style: Theme.of(context).primaryTextTheme.subtitle2,
+            SizedBox(
+              width: 90,
+              child: Text(
+                '$withoutIva€',
+                style: Theme.of(context).primaryTextTheme.subtitle2,
+              ),
             ),
-            Text(
-              '$withIva€',
-              style: Theme.of(context).primaryTextTheme.subtitle2,
+            SizedBox(
+              width: 35,
+              child: Text(
+                '$withIva€',
+                style: Theme.of(context).primaryTextTheme.subtitle2,
+              ),
             ),
           ],
         ),

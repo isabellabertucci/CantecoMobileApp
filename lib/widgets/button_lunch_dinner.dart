@@ -23,32 +23,3 @@ class ButtonLunchDinner extends StatelessWidget {
     );
   }
 }
-
-/* final List<CardMealsMenu> cards_data = [
-  Expanded(
-                    child: CardMealsMenu(
-                      assetName: Assets.icDatabase,
-                      text: 'Tuna pasta',
-                      itemKcal: '155 Kcal',
-                    ),
-                  ),
-  Expanded(
-                    child: CardMealsMenu(
-                      assetName: Assets.icDatabase,
-                      text: 'Tuna pasta',
-                      itemKcal: '155 Kcal',
-                    ),
-                  ),Expanded(
-                    child: CardMealsMenu(
-                      assetName: Assets.icDatabase,
-                      text: 'Tuna pasta',
-                      itemKcal: '155 Kcal',
-                    ),
-                  ),Expanded(
-                    child: CardMealsMenu(
-                      assetName: Assets.icDatabase,
-                      text: 'Tuna pasta',
-                      itemKcal: '155 Kcal',
-                    ),
-                  ),
-]; */

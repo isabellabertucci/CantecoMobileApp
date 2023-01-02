@@ -1,0 +1,32 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "A new Flutter project.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabellabertucci/ProjectCanteco.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isabellabertucci/ProjectCanteco/issues"
+  },
+  "homepage": "https://github.com/isabellabertucci/ProjectCanteco#readme",
+  "keywords": [],
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.2"
+  },
+  "devDependencies": {}
+}

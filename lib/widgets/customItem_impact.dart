@@ -4,7 +4,7 @@ class ItemStats extends StatelessWidget {
   final String itemName;
   final String quantity;
   final int impact;
-  final color;
+  final dynamic color;
 
   const ItemStats({
     Key? key,

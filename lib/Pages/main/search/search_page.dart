@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../models/food.dart';
 import '../../../utils/assets.dart';
+import '../../../utils/routes.dart';
 import '../../../widgets/card_item_simple.dart';
 import '../../../widgets/input_search.dart';
 
@@ -14,7 +15,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   var foodList = [
     Food(
-      itemName: "Rice",
+      itemName: "Tuna",
     ),
     Food(
       itemName: "Beans",
@@ -26,28 +27,28 @@ class _SearchPageState extends State<SearchPage> {
       itemName: "Pasta",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Pasta",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Beef",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Lentils",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Peas",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Chicken",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Rabbit",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Soya",
     ),
     Food(
-      itemName: "rice",
+      itemName: "Pork",
     ),
   ];
 
@@ -78,6 +79,8 @@ class _SearchPageState extends State<SearchPage> {
                   itemCount: foodList.length,
                   itemBuilder: (context, index) {
                     return CardItemSimple(
+                      onTap: () => Navigator.pushNamed(
+                          context, Routes.individualItemPage),
                       icon: Assets.icCalendar,
                       itemName: foodList[index].itemName,
                     );

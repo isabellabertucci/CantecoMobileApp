@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../utils/routes.dart';
 import '../../../widgets/custom_buttom_home.dart';
 import '../../../widgets/schedule_buttom.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

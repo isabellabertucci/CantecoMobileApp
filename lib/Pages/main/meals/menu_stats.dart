@@ -1,8 +1,10 @@
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import '../../../utils/assets.dart';
 import '../../../widgets/customItem_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../../widgets/custom_pop_up.dart';
 
 class MenuStats extends StatefulWidget {
   const MenuStats({super.key});
@@ -12,6 +14,16 @@ class MenuStats extends StatefulWidget {
 }
 
 class _MenuStatstate extends State<MenuStats> {
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const PopUpDialog(
+              title: 'Confirm your order',
+              description: 'Tuna Pasta scheduled for xx/xx/xx');
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,19 +33,35 @@ class _MenuStatstate extends State<MenuStats> {
           child: Column(
             children: [
               /* LABEL */
-              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Item',
-                    style: Theme.of(context).primaryTextTheme.headline3,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SvgPicture.asset(
+                      Assets.icArrowL,
+                      height: 25,
+                      width: 25,
+                    ),
                   ),
                   Text(
-                    'Color',
-                    style: Theme.of(context).primaryTextTheme.headline3,
+                    'Meal Name',
+                    style: Theme.of(context).primaryTextTheme.headline1,
                   ),
+                  const SizedBox(
+                    width: 25,
+                    height: 25,
+                  )
                 ],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Container(
+                height: 125,
+                color: Colors.red,
               ),
 
               /* ITENS */
@@ -48,7 +76,7 @@ class _MenuStatstate extends State<MenuStats> {
                 color: Colors.purple[300],
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               const ItemStats(
                 itemName: 'Beef',
@@ -57,7 +85,7 @@ class _MenuStatstate extends State<MenuStats> {
                 color: Colors.blue,
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               const ItemStats(
                 itemName: 'Carrot',
@@ -68,11 +96,6 @@ class _MenuStatstate extends State<MenuStats> {
               const SizedBox(
                 height: 15,
               ),
-              const ItemStats(
-                  itemName: 'sugar',
-                  quantity: '100gr',
-                  impact: 50,
-                  color: Colors.pink),
 
               /* NUTRITIONAL VALUE */
               const SizedBox(
@@ -104,8 +127,7 @@ class _MenuStatstate extends State<MenuStats> {
               const SizedBox(
                 height: 20,
               ),
-              CustomButton(text: 'Order', onTap: () {}),
-              const Spacer()
+              CustomButton(text: 'Order', onTap: _showDialog),
 
               /* FIM */
             ],

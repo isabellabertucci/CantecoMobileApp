@@ -7,7 +7,7 @@ class CustomCard extends StatelessWidget {
   final String subtitle;
   final String icon;
 
-  CustomCard({
+  const CustomCard({
     super.key,
     required this.title,
     required this.subtitle,

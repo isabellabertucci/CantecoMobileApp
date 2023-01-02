@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/assets.dart';
+import 'custom_pop_up.dart';
 
-class SchedulesMeal extends StatelessWidget {
+class SchedulesMeal extends StatefulWidget {
   final String mealName, time;
   final int kcal;
   final String icon;
@@ -16,19 +17,34 @@ class SchedulesMeal extends StatelessWidget {
   });
 
   @override
+  State<SchedulesMeal> createState() => _SchedulesMealState();
+}
+
+class _SchedulesMealState extends State<SchedulesMeal> {
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const PopUpDialog(
+              title: 'Cancel your order',
+              description: 'Tuna Pasta scheduled for xx/xx/xx');
+        });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(icon),
+            SvgPicture.asset(widget.icon),
           ],
         ),
         title: Row(
           children: [
             Text(
-              mealName,
+              widget.mealName,
               style: Theme.of(context).primaryTextTheme.headline3,
             ),
           ],
@@ -36,19 +52,22 @@ class SchedulesMeal extends StatelessWidget {
         subtitle: Row(
           children: [
             Text(
-              '$kcal kcal | ',
+              '${widget.kcal} kcal | ',
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
             Text(
-              time,
+              widget.time,
               style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
           ],
         ),
-        trailing: SvgPicture.asset(
-          Assets.icClose,
-          height: 12,
-          width: 12,
+        trailing: InkWell(
+          onTap: _showDialog,
+          child: SvgPicture.asset(
+            Assets.icClose,
+            height: 12,
+            width: 12,
+          ),
         ),
       ),
     );

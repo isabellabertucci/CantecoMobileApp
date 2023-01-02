@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:canteco_app/utils/assets.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -13,6 +16,20 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+
+      final imageTemporary = File(image.path);
+      setState(() => this.image = imageTemporary);
+    } on PlatformException catch (e) {
+      print('failed: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +44,26 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Container(
-                      width: 120,
-                      height: 120,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: CustomTheme.silver,
-                      ),
+                    InkWell(
+                      onTap: () => pickImage(),
+                      child: image != null
+                          ? ClipRRect(
+                              borderRadius: BorderRadius.circular(60),
+                              child: Image.file(
+                                image!,
+                                width: 120,
+                                height: 120,
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          : Container(
+                              width: 120,
+                              height: 120,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: CustomTheme.silver,
+                              ),
+                            ),
                     ),
                     const SizedBox(
                       height: 10,

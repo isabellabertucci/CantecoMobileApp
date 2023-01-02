@@ -24,7 +24,7 @@ class PopUpDialog extends StatelessWidget {
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 10.0),
+          padding: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

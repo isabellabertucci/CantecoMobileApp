@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
-options: "908ffae196c11f8d2167cf7c65eb3846a502878bcb2d597aea01cbe8e056e971"
-build_start_time: [1671717251, 715577125]
-build_end_time: [1671717251, 734548091]
-inputs:
-  "/Users/isabellabertucci/development/ProjectCanteco/macos/Flutter/GeneratedPluginRegistrant.swift": !private [1671717237, 749751806]
-  "/Users/isabellabertucci/development/ProjectCanteco/macos/Runner/AppDelegate.swift": !private [1657744731, 0]
-  "/Users/isabellabertucci/development/ProjectCanteco/macos/Runner/MainFlutterWindow.swift": !private [1657744731, 0]

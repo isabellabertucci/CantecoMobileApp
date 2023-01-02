@@ -19,9 +19,6 @@ dependencies:
   image_picker: ^0.8.6
   
   
-
-  
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -30,6 +27,8 @@ dev_dependencies:
 
   #image
   flutter_svg: ^1.1.6
+
+  flutter_gen: ^5.1.0+1
   
   flutter_native_splash: ^2.2.16
 

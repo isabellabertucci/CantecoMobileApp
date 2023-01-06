@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const SizedBox(height: 50),
                 SvgPicture.asset(
-                  Assets.icCalendar,
+                  Assets.icLogoT,
                   height: 48,
                 ),
                 const SizedBox(height: 40),

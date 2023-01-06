@@ -2,8 +2,10 @@ import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../utils/routes.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../utils/theme.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -49,7 +51,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     SvgPicture.asset(
                       Assets.icArrowR,
                       height: 18,
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -66,6 +68,26 @@ class _OnBoardingState extends State<OnBoarding> {
                 onPageChanged: (currentPage) =>
                     {setState(() => _currentPage = currentPage)},
               ),
+            ),
+            SmoothPageIndicator(
+              controller: _pageController,
+              count: demo_data.length,
+              effect: CustomizableEffect(
+                  dotDecoration: DotDecoration(
+                    height: 15,
+                    width: 15,
+                    color: CustomTheme.silver,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  activeDotDecoration: DotDecoration(
+                    height: 15,
+                    width: 15,
+                    color: CustomTheme.ultramarineBlue,
+                    borderRadius: BorderRadius.circular(8),
+                  )),
+            ),
+            const SizedBox(
+              height: 15,
             ),
             CustomButton(
               text: _currentPage == 2 ? "Done" : "Next",

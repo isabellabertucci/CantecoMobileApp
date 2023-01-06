@@ -35,6 +35,7 @@ class CustomTextField extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
+                style: const TextStyle(color: CustomTheme.eerieBlack),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 key: formKey,
                 controller: controller,

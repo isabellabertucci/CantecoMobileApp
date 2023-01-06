@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../utils/assets.dart';
 import '../../../utils/theme.dart';
-import '../../../widgets/customItem_impact.dart';
+import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

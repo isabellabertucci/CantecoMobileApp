@@ -71,8 +71,7 @@ class _LoginPageState extends State<SignUpPageSec> {
                               236), //mudei o cultured pois nao se via, (nao fica igual ao design)
                           textColor: CustomTheme.ultramarineBlue,
                           text: 'Back',
-                          onTap: () =>
-                              Navigator.pushNamed(context, Routes.signUpMain)),
+                          onTap: () => Navigator.pop(context)),
                     ),
                     const SizedBox(width: 20),
                     Expanded(

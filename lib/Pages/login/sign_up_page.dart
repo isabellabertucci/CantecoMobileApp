@@ -22,88 +22,91 @@ class _LoginPageState extends State<SignUpPageMain> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Center(
-                child: Text(
-                  'Personal Information',
-                  style: Theme.of(context).primaryTextTheme.headline2,
-                ),
-              ),
-              const SizedBox(height: 40),
-              CustomTextField(
-                label: 'Full name',
-                hint: 'Enter your name',
-                isPassword: false,
-                controller: _nameController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                label: 'School Email ',
-                hint: 'Enter your school email',
-                isPassword: false,
-                controller: _emailController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                label: 'Password',
-                hint: 'Enter your password',
-                isPassword: true,
-                controller: _passwordController,
-              ),
-              const SizedBox(height: 25),
-              CustomTextField(
-                label: 'Confirm Password',
-                hint: 'Confirm password',
-                isPassword: true,
-                controller: _confirmPasController,
-              ),
-              const Spacer(
-                flex: 2,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  CustomButton2(
-                    textColor: CustomTheme.white,
-                    text: 'Next',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpPageSec()),
-                      );
-                    },
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        child: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Center(
+                  child: Text(
+                    'Personal Information',
+                    style: Theme.of(context).primaryTextTheme.headline2,
                   ),
-                ],
-              ),
-              const Spacer(),
-              const SizedBox(height: 45),
-              RichText(
-                text: TextSpan(
-                  style: const TextStyle(color: Colors.black, fontSize: 16),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'If you already have an account. ',
-                      style: Theme.of(context).textTheme.headline2,
+                ),
+                const SizedBox(height: 40),
+                CustomTextField(
+                  label: 'Full name',
+                  hint: 'Enter your name',
+                  isPassword: false,
+                  controller: _nameController,
+                ),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  label: 'School Email ',
+                  hint: 'Enter your school email',
+                  isPassword: false,
+                  controller: _emailController,
+                ),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  label: 'Password',
+                  hint: 'Enter your password',
+                  isPassword: true,
+                  controller: _passwordController,
+                ),
+                const SizedBox(height: 25),
+                CustomTextField(
+                  label: 'Confirm Password',
+                  hint: 'Confirm password',
+                  isPassword: true,
+                  controller: _confirmPasController,
+                ),
+                const Spacer(
+                  flex: 2,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CustomButton2(
+                      textColor: CustomTheme.white,
+                      text: 'Next',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpPageSec()),
+                        );
+                      },
                     ),
-                    TextSpan(
-                        text: 'Log In',
-                        style: const TextStyle(
-                            color: CustomTheme.ultramarineBlue,
-                            fontWeight: FontWeight.bold),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () =>
-                              Navigator.pushNamed(context, Routes.loginPage)),
                   ],
                 ),
-              ),
-              const Spacer(flex: 4),
-            ],
+                const Spacer(),
+                const SizedBox(height: 45),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.black, fontSize: 16),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'If you already have an account. ',
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      TextSpan(
+                          text: 'Log In',
+                          style: const TextStyle(
+                              color: CustomTheme.ultramarineBlue,
+                              fontWeight: FontWeight.bold),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () =>
+                                Navigator.pushNamed(context, Routes.loginPage)),
+                    ],
+                  ),
+                ),
+                const Spacer(flex: 4),
+              ],
+            ),
           ),
         ),
       ),

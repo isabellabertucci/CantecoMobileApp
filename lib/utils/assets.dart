@@ -9,6 +9,7 @@ class Assets {
   static const icLogo = "assets/images/logo.svg";
   static const icLogoP = "assets/images/logoP.png";
   static const icLogoT = "assets/images/logo_txt.svg";
+  static const icLogoTxt = "assets/images/logo_txt2.svg";
   static const icmProfile = "assets/images/img_profile.svg";
 
   static const icAngle = "assets/images/angle_down.svg";

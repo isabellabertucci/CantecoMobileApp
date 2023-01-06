@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../utils/assets.dart';
-import '../../../utils/routes.dart';
 import '../../../widgets/custom_price_list.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -27,8 +26,7 @@ class _PriceListPageState extends State<PriceListPage> {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, Routes.menuPage, (route) => false);
+                    Navigator.pop(context);
                   },
                   child: SvgPicture.asset(
                     Assets.icArrowL,

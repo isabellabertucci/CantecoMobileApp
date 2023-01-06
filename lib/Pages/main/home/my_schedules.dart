@@ -25,8 +25,7 @@ class _MySchedulesState extends State<MySchedules> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, Routes.menuPage, (route) => false);
+                      Navigator.pop(context);
                     },
                     child: SvgPicture.asset(
                       Assets.icArrowL,

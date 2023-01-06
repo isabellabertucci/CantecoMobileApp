@@ -1,10 +1,12 @@
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/assets.dart';
-import '../../../widgets/customItem_impact.dart';
+import '../../../widgets/custom_bar_chart.dart';
+import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../widgets/custom_pop_up.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
 class MenuStats extends StatefulWidget {
   const MenuStats({super.key});
@@ -14,6 +16,24 @@ class MenuStats extends StatefulWidget {
 }
 
 class _MenuStatstate extends State<MenuStats> {
+  final List<BarChartModel> data = [
+    BarChartModel(
+      item: "Pasta",
+      financial: 200,
+      color: charts.ColorUtil.fromDartColor(Colors.purple),
+    ),
+    BarChartModel(
+      item: "Beef",
+      financial: 450,
+      color: charts.ColorUtil.fromDartColor(Colors.blue),
+    ),
+    BarChartModel(
+      item: "Carrot",
+      financial: 20,
+      color: charts.ColorUtil.fromDartColor(Colors.green),
+    ),
+  ];
+
   void _showDialog() {
     showDialog(
         context: context,
@@ -26,6 +46,16 @@ class _MenuStatstate extends State<MenuStats> {
 
   @override
   Widget build(BuildContext context) {
+    List<charts.Series<BarChartModel, String>> series = [
+      charts.Series(
+        id: "financial",
+        data: data,
+        domainFn: (BarChartModel series, _) => series.item,
+        measureFn: (BarChartModel series, _) => series.financial,
+        colorFn: (BarChartModel series, _) => series.color,
+      ),
+    ];
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -59,9 +89,16 @@ class _MenuStatstate extends State<MenuStats> {
               const SizedBox(
                 height: 40,
               ),
+
+              /* GRAPH */
               Container(
-                height: 125,
-                color: Colors.red,
+                height: 200,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                child: charts.BarChart(
+                  series,
+                  animate: true,
+                ),
               ),
 
               /* ITENS */

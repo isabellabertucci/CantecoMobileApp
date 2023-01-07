@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../utils/assets.dart';
 import '../../../widgets/custom_price_list.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class PriceListPage extends StatefulWidget {
   const PriceListPage({super.key});
@@ -28,11 +26,7 @@ class _PriceListPageState extends State<PriceListPage> {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: SvgPicture.asset(
-                    Assets.icArrowL,
-                    height: 25,
-                    width: 25,
-                  ),
+                  child: Icon(Icons.adaptive.arrow_back),
                 ),
                 Text(
                   'Price List',

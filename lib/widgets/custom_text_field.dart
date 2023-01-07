@@ -10,18 +10,39 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final String hint;
   final String? tralingIcon;
+  final String? errorText;
 
-  CustomTextField({
-    super.key,
-    required this.controller,
-    required this.label,
-    this.isPassword = false,
-    required this.hint,
-    this.tralingIcon,
-  });
+  CustomTextField(
+      {super.key,
+      required this.controller,
+      required this.label,
+      this.isPassword = false,
+      required this.hint,
+      this.tralingIcon,
+      this.errorText});
 
   @override
   Widget build(BuildContext context) {
+    var defaultBorder = const OutlineInputBorder(
+      borderSide: BorderSide(
+        color: CustomTheme.cultured,
+        width: 1.0,
+      ),
+      borderRadius: BorderRadius.all(
+        Radius.circular(10.0),
+      ),
+    );
+
+    var errorBorder = OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Theme.of(context).errorColor,
+        width: 1.0,
+      ),
+      borderRadius: const BorderRadius.all(
+        Radius.circular(10.0),
+      ),
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +62,14 @@ class CustomTextField extends StatelessWidget {
                 controller: controller,
                 obscureText: isPassword,
                 decoration: InputDecoration(
-                  border: InputBorder.none,
+                  errorText: errorText,
+                  errorStyle: Theme.of(context)
+                      .primaryTextTheme
+                      .subtitle1
+                      ?.copyWith(color: Theme.of(context).errorColor),
+                  errorBorder: errorBorder,
+                  errorMaxLines: 1,
+                  border: defaultBorder,
                   filled: true,
                   fillColor: CustomTheme.cultured,
                   hintText: hint,
@@ -50,15 +78,7 @@ class CustomTextField extends StatelessWidget {
                       .primaryTextTheme
                       .subtitle1
                       ?.copyWith(color: CustomTheme.silver),
-                  enabledBorder: InputBorder.none,
-
-                  /*   enabledBorder: const OutlineInputBorder(
-                    borderSide:
-                        BorderSide(width: 3, color: CustomTheme.blueCrayola),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10.0),
-                    ),
-                  ), */
+                  enabledBorder: defaultBorder,
                 ),
               ),
             ),

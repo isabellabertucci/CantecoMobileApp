@@ -1,4 +1,3 @@
-import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -48,10 +47,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     Text('Skip',
                         style: Theme.of(context).primaryTextTheme.headline6),
                     const SizedBox(width: 15),
-                    SvgPicture.asset(
-                      Assets.icArrowR,
-                      height: 18,
-                    ),
+                    Icon(Icons.adaptive.arrow_forward),
                   ],
                 ),
               ),

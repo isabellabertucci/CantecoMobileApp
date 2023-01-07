@@ -29,11 +29,7 @@ class _MyHistorySchedulesState extends State<MyHistorySchedules> {
                       Navigator.pushNamedAndRemoveUntil(
                           context, Routes.yourSchedulePage, (route) => false);
                     },
-                    child: SvgPicture.asset(
-                      Assets.icArrowL,
-                      height: 25,
-                      width: 25,
-                    ),
+                    child: Icon(Icons.adaptive.arrow_back),
                   ),
                   Text(
                     'History',

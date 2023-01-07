@@ -24,15 +24,10 @@ class _MySchedulesState extends State<MySchedules> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SvgPicture.asset(
-                      Assets.icArrowL,
-                      height: 25,
-                      width: 25,
-                    ),
-                  ),
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.menuPage);
+                      },
+                      child: Icon(Icons.adaptive.arrow_back)),
                   Text(
                     'Your Schedules',
                     style: Theme.of(context).primaryTextTheme.headline1,

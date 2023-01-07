@@ -1,10 +1,8 @@
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import '../../../utils/assets.dart';
 import '../../../widgets/custom_bar_chart.dart';
 import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../../widgets/custom_pop_up.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
@@ -70,11 +68,7 @@ class _MenuStatstate extends State<MenuStats> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: SvgPicture.asset(
-                      Assets.icArrowL,
-                      height: 25,
-                      width: 25,
-                    ),
+                    child: Icon(Icons.adaptive.arrow_back),
                   ),
                   Text(
                     'Meal Name',

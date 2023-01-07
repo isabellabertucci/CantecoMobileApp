@@ -1,3 +1,4 @@
+import 'package:canteco_app/domain/login/login_gateway.dart';
 import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/gestures.dart';
@@ -15,8 +16,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _loginGateway = LoginGateway();
   final _textController = TextEditingController();
   final _passwordController = TextEditingController();
+  var _showEmailError = false;
+  var _showPasswordError = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const Spacer(),
                 SvgPicture.asset(
                   Assets.icLogoT,
                   height: 48,
@@ -45,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                   label: 'Email',
                   hint: 'Enter with your email',
                   isPassword: false,
+                  errorText: _showEmailError ? "User not found" : null,
                   controller: _textController,
                 ),
                 const SizedBox(height: 25),
@@ -53,13 +58,31 @@ class _LoginPageState extends State<LoginPage> {
                   hint: 'Enter with your password',
                   isPassword: true,
                   controller: _passwordController,
+                  errorText: _showPasswordError ? "Invalid password" : null,
                 ),
                 const SizedBox(height: 40),
                 CustomButton(
                   text: 'Log in',
-                  onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, Routes.onboardingPage, (route) => false);
+                  onTap: () async {
+                    var loginResult = await _loginGateway.login(
+                        email: _textController.text,
+                        password: _passwordController.text);
+                    if (loginResult >= 200 && loginResult <= 299) {
+                      setState(() {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, Routes.onboardingPage, (route) => false);
+                      });
+                    } else {
+                      setState(() {
+                        if (loginResult == 422) {
+                          _showPasswordError = true;
+                          _showEmailError = false;
+                        } else {
+                          _showEmailError = true;
+                          _showPasswordError = false;
+                        }
+                      });
+                    }
                   },
                 ),
                 const Spacer(),

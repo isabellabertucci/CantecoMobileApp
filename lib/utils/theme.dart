@@ -29,6 +29,7 @@ class CustomTheme {
       textTheme: getTextTheme(textColor: silver),
       elevatedButtonTheme: getButtonTheme(),
       brightness: Brightness.light,
+      errorColor: redPigment,
     );
   }
 

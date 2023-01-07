@@ -1,9 +1,10 @@
-import 'package:canteco_app/Pages/login/sign_up_page_sec.dart';
 import 'package:canteco_app/utils/theme.dart';
-import 'package:canteco_app/widgets/custom_button2.dart';
-
+import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import '../../domain/login/login_gateway.dart';
+import '../../utils/assets.dart';
 import '../../utils/routes.dart';
 import '../../widgets/custom_text_field.dart';
 
@@ -15,8 +16,11 @@ class SignUpPageMain extends StatefulWidget {
 }
 
 class _LoginPageState extends State<SignUpPageMain> {
+  final _loginGateway = LoginGateway();
+  bool _showError = false;
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  final _roleController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasController = TextEditingController();
 
@@ -30,6 +34,24 @@ class _LoginPageState extends State<SignUpPageMain> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+                const Spacer(),
+                Row(
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(Icons.adaptive.arrow_back)),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    SvgPicture.asset(
+                      Assets.icLogoT,
+                      height: 48,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 25),
                 Center(
                   child: Text(
                     'Personal Information',
@@ -43,21 +65,29 @@ class _LoginPageState extends State<SignUpPageMain> {
                   isPassword: false,
                   controller: _nameController,
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
                 CustomTextField(
                   label: 'School Email ',
                   hint: 'Enter your school email',
+                  errorText: _showError ? "Emai already registed" : null,
                   isPassword: false,
                   controller: _emailController,
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
+                CustomTextField(
+                  label: 'User role',
+                  hint: 'Enter your role',
+                  isPassword: false,
+                  controller: _roleController,
+                ),
+                const SizedBox(height: 20),
                 CustomTextField(
                   label: 'Password',
                   hint: 'Enter your password',
                   isPassword: true,
                   controller: _passwordController,
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
                 CustomTextField(
                   label: 'Confirm Password',
                   hint: 'Confirm password',
@@ -65,23 +95,29 @@ class _LoginPageState extends State<SignUpPageMain> {
                   controller: _confirmPasController,
                 ),
                 const Spacer(
-                  flex: 2,
+                  flex: 45,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CustomButton2(
-                      textColor: CustomTheme.white,
-                      text: 'Next',
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignUpPageSec()),
-                        );
-                      },
-                    ),
-                  ],
+                CustomButton(
+                  textColor: CustomTheme.white,
+                  text: 'Create',
+                  onTap: () async {
+                    var loginResult = await _loginGateway.signUp(
+                      fullName: _nameController.text,
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      confirmPassword: _confirmPasController.text,
+                    );
+
+                    if (loginResult >= 200 && loginResult <= 299) {
+                      setState(() {
+                        Navigator.pushNamed(context, Routes.loginPage);
+                      });
+                    } else {
+                      setState(() {
+                        _showError = true;
+                      });
+                    }
+                  },
                 ),
                 const Spacer(),
                 const SizedBox(height: 45),

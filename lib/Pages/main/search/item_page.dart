@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../utils/assets.dart';
 import '../../../utils/theme.dart';
 import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemPage extends StatefulWidget {
   const ItemPage({super.key});
@@ -29,11 +27,7 @@ class _ItemPageState extends State<ItemPage> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: SvgPicture.asset(
-                      Assets.icArrowL,
-                      height: 25,
-                      width: 25,
-                    ),
+                    child: Icon(Icons.adaptive.arrow_back),
                   ),
                   Text(
                     'Item Name',

@@ -1,7 +1,7 @@
 import 'package:canteco_app/Pages/main/meals/lunch.dart';
 import 'package:canteco_app/Pages/main/meals/dinner.dart';
 import 'package:canteco_app/utils/assets.dart';
-import 'package:flutter_svg/svg.dart';
+import '../../../utils/routes.dart';
 import '../../../widgets/button_lunch_dinner.dart';
 import '../../../widgets/input_date.dart';
 import 'package:flutter/material.dart';
@@ -49,14 +49,9 @@ class _MealsPageState extends State<MealsPage>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: SvgPicture.asset(
-                        Assets.icArrowL,
-                        height: 25,
-                        width: 25,
-                      ),
+                      onTap: () => Navigator.pushNamedAndRemoveUntil(
+                          context, Routes.menuPage, (route) => false),
+                      child: Icon(Icons.adaptive.arrow_back),
                     ),
                     Text(
                       'Menu',

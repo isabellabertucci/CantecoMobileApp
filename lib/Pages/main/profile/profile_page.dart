@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:canteco_app/utils/theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/services.dart';
@@ -16,11 +17,59 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  File? image;
+  void _showOptions() {
+    if (Platform.isIOS) {
+      showCupertinoModalPopup(
+        context: context,
+        builder: (BuildContext context) => CupertinoActionSheet(
+          title: Text('Select An Option'),
+          actions: <Widget>[
+            CupertinoActionSheetAction(
+              child: Text('Camera'),
+              onPressed: () {
+                pickImage(ImageSource.camera);
+                Navigator.pop(context);
+              },
+            ),
+            CupertinoActionSheetAction(
+              child: Text('Library'),
+              onPressed: () {
+                pickImage(ImageSource.gallery);
+                Navigator.pop(context);
+              },
+            )
+          ],
+        ),
+      );
+    } else {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  leading: const Icon(Icons.photo),
+                  title: const Text('Camera'),
+                  onTap: () =>
+                      {pickImage(ImageSource.camera), Navigator.pop(context)},
+                ),
+                ListTile(
+                  leading: const Icon(Icons.library_add),
+                  title: const Text('Library'),
+                  onTap: () =>
+                      {pickImage(ImageSource.gallery), Navigator.pop(context)},
+                ),
+              ],
+            );
+          });
+    }
+  }
 
-  Future pickImage() async {
+  File? image;
+  Future pickImage(ImageSource source) async {
     try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
 
       final imageTemporary = File(image.path);
@@ -45,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   children: [
                     InkWell(
-                      onTap: () => pickImage(),
+                      onTap: () => _showOptions(),
                       child: image != null
                           ? ClipRRect(
                               borderRadius: BorderRadius.circular(60),
@@ -63,6 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 shape: BoxShape.circle,
                                 color: CustomTheme.silver,
                               ),
+                              child: const Icon(Icons.photo),
                             ),
                     ),
                     const SizedBox(

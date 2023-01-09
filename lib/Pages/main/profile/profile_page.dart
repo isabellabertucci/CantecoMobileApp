@@ -22,17 +22,17 @@ class _ProfilePageState extends State<ProfilePage> {
       showCupertinoModalPopup(
         context: context,
         builder: (BuildContext context) => CupertinoActionSheet(
-          title: Text('Select An Option'),
+          title: const Text('Select An Option'),
           actions: <Widget>[
             CupertinoActionSheetAction(
-              child: Text('Camera'),
+              child: const Text('Camera'),
               onPressed: () {
                 pickImage(ImageSource.camera);
                 Navigator.pop(context);
               },
             ),
             CupertinoActionSheetAction(
-              child: Text('Library'),
+              child: const Text('Library'),
               onPressed: () {
                 pickImage(ImageSource.gallery);
                 Navigator.pop(context);
@@ -110,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               height: 120,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: CustomTheme.silver,
+                                color: CustomTheme.cultured,
                               ),
                               child: const Icon(Icons.photo),
                             ),

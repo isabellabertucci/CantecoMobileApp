@@ -1,11 +1,11 @@
+import 'package:canteco_app/Pages/main/meals/menu_stats.dart';
 import 'package:flutter/material.dart';
-
 import '../../../utils/assets.dart';
-import '../../../utils/routes.dart';
 import '../../../widgets/card_meals_menu.dart';
 
 class Lunch extends StatelessWidget {
-  const Lunch({super.key});
+  final String? value;
+  const Lunch({super.key, this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,11 @@ class Lunch extends StatelessWidget {
                 assetName: Assets.icClockC,
                 text: 'Tuna pasta',
                 itemKcal: '155 Kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const MenuStats(value: "Tuna pasta"),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 16),
@@ -39,7 +43,12 @@ class Lunch extends StatelessWidget {
                 assetName: Assets.icClockC,
                 text: 'Bean bolognese',
                 itemKcal: '155 Kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Bean bolognese"),
+                  ),
+                ),
               ),
             ),
           ],
@@ -52,7 +61,12 @@ class Lunch extends StatelessWidget {
                 assetName: Assets.icClockC,
                 text: 'Chicken with pasta',
                 itemKcal: '155 Kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Chicken with pasta"),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 16),
@@ -61,7 +75,12 @@ class Lunch extends StatelessWidget {
                 assetName: Assets.icClockC,
                 text: 'Sautéed Legumes',
                 itemKcal: '155 kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Sautéed Legumes"),
+                  ),
+                ),
               ),
             ),
           ],

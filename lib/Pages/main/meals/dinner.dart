@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
 import '../../../utils/assets.dart';
-import '../../../utils/routes.dart';
 import '../../../widgets/card_meals_menu.dart';
+import 'menu_stats.dart';
 
 class Dinner extends StatelessWidget {
-  const Dinner({super.key});
+  final String? value;
+  const Dinner({super.key, this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +28,28 @@ class Dinner extends StatelessWidget {
             Expanded(
               child: CardMealsMenu(
                 assetName: Assets.icDatabase,
-                text: 'Tuna pasta',
-                itemKcal: '155 Kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                text: 'Codfish w/ potatoes',
+                itemKcal: '421 Kcal',
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Codfish w/ potatoes"),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 16),
             Expanded(
               child: CardMealsMenu(
                 assetName: Assets.icDatabase,
-                text: 'Bean bolognese',
-                itemKcal: '155 Kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                text: 'Chicken Rice',
+                itemKcal: '362 Kcal',
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Chicken Rice"),
+                  ),
+                ),
               ),
             ),
           ],
@@ -50,18 +60,28 @@ class Dinner extends StatelessWidget {
             Expanded(
               child: CardMealsMenu(
                 assetName: Assets.icDatabase,
-                text: 'Chicken with pasta',
-                itemKcal: '155 Kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                text: 'Roasted Beef',
+                itemKcal: '443 Kcal',
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Roasted Beef"),
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 16),
             Expanded(
               child: CardMealsMenu(
                 assetName: Assets.icDatabase,
-                text: 'Sautéed Legumes',
-                itemKcal: '155 kcal',
-                onTap: () => Navigator.pushNamed(context, Routes.menuStatsPage),
+                text: 'Veggie Paella',
+                itemKcal: '355 kcal',
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const MenuStats(value: "Veggie Paella"),
+                  ),
+                ),
               ),
             ),
           ],

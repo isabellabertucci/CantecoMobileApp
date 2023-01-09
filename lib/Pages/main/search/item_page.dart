@@ -1,7 +1,9 @@
+import 'package:canteco_app/models/food.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/theme.dart';
 import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemPage extends StatefulWidget {
   const ItemPage({super.key});
@@ -13,6 +15,7 @@ class ItemPage extends StatefulWidget {
 class _ItemPageState extends State<ItemPage> {
   @override
   Widget build(BuildContext context) {
+    final food = ModalRoute.of(context)!.settings.arguments as Food;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -24,13 +27,12 @@ class _ItemPageState extends State<ItemPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(Icons.adaptive.arrow_back),
-                  ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(Icons.adaptive.arrow_back)),
                   Text(
-                    'Item Name',
+                    food.itemName,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   const SizedBox(
@@ -49,7 +51,9 @@ class _ItemPageState extends State<ItemPage> {
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                        color: CustomTheme.ultramarineBlue, width: 8)),
+                      color: CustomTheme.ultramarineBlue,
+                      width: 8,
+                    )),
                 // inner one
                 child: Container(
                   width: 135.0,
@@ -58,6 +62,10 @@ class _ItemPageState extends State<ItemPage> {
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: CustomTheme.cultured,
+                  ),
+                  child: SvgPicture.asset(
+                    food.img,
+                    width: 120,
                   ),
                 ),
               ),
@@ -71,12 +79,13 @@ class _ItemPageState extends State<ItemPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    NutriStats(statsInfo: 'kcal', statsNumber: 565),
+                  children: [
+                    NutriStats(statsInfo: 'kcal', statsNumber: food.kcal),
                     NutriStats(
-                        statsInfo: 'protein', statsNumber: 160 /* + 'g' */),
-                    NutriStats(statsInfo: 'fat', statsNumber: 14 /* + 'g' */),
-                    NutriStats(statsInfo: 'carbs', statsNumber: 50 /* + 'g' */),
+                        statsInfo: 'protein', statsNumber: '${food.protein}g'),
+                    NutriStats(statsInfo: 'fat', statsNumber: '${food.fat}g'),
+                    NutriStats(
+                        statsInfo: 'carbs', statsNumber: '${food.carbs}g'),
                   ],
                 ),
               ),
@@ -90,13 +99,13 @@ class _ItemPageState extends State<ItemPage> {
                 ],
               ),
               const SizedBox(height: 20),
-              const ItemStatsSimple(
+              ItemStatsSimple(
                 itemName: 'Water',
-                type: '1500 liters',
+                type: "${food.waterImpact} liters",
               ),
-              const ItemStatsSimple(
+              ItemStatsSimple(
                 itemName: 'Carbon',
-                type: '25 CO2e ',
+                type: "${food.carbonimpact} Coe2",
               ),
             ],
           ),

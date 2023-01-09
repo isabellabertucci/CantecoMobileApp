@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NutriStats extends StatelessWidget {
-  final int statsNumber;
+  final dynamic statsNumber;
   final String statsInfo;
 
   const NutriStats({

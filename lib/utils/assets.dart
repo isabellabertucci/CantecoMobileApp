@@ -9,7 +9,6 @@ class Assets {
   static const icLogo = "assets/images/logo.svg";
   static const icLogoP = "assets/images/logoP.png";
   static const icLogoT = "assets/images/logo_txt.svg";
-  static const icLogoTxt = "assets/images/logo_txt2.svg";
   static const icmProfile = "assets/images/img_profile.svg";
 
   static const icAngle = "assets/images/angle_down.svg";
@@ -37,4 +36,14 @@ class Assets {
   static const icUtensilsC = "assets/images/utensils_clicked.svg";
   static const icUtensilsU = "assets/images/utensils_unclicked.svg";
   static const icAdd = "assets/images/add.svg";
+
+  static const imgPeixe = "assets/images/peixe.svg";
+  static const imgArroz = "assets/images/arroz.svg";
+  static const imgVaca = "assets/images/carne.svg";
+  static const imgMassa = "assets/images/massa.svg";
+  static const imgFrango = "assets/images/frango.svg";
+  static const imgFeijao = "assets/images/feijao.svg";
+  static const imgCenoura = "assets/images/cenoura.svg";
+  static const imgAgua = "assets/images/agua.svg";
+  static const imgCo2 = "assets/images/co2.svg";
 }

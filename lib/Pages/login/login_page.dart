@@ -1,12 +1,10 @@
 import 'package:canteco_app/domain/login/login_gateway.dart';
-import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../utils/routes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_field.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -33,9 +31,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: [
                 const Spacer(),
-                SvgPicture.asset(
-                  Assets.icLogoT,
-                  height: 48,
+                Image.asset(
+                  "assets/images/logo_txt.png",
+                  height: 80,
                 ),
                 const SizedBox(height: 40),
                 Center(

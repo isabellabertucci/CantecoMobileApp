@@ -7,7 +7,8 @@ import '../../../widgets/custom_pop_up.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 class MenuStats extends StatefulWidget {
-  const MenuStats({super.key});
+  final String value;
+  const MenuStats({super.key, required this.value});
 
   @override
   State<MenuStats> createState() => _MenuStatstate();
@@ -65,13 +66,12 @@ class _MenuStatstate extends State<MenuStats> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(Icons.adaptive.arrow_back),
-                  ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(Icons.adaptive.arrow_back)),
                   Text(
-                    'Meal Name',
+                    widget.value,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   const SizedBox(
@@ -79,9 +79,6 @@ class _MenuStatstate extends State<MenuStats> {
                     height: 25,
                   )
                 ],
-              ),
-              const SizedBox(
-                height: 40,
               ),
 
               /* GRAPH */

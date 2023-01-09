@@ -58,7 +58,7 @@ class ItemStats extends StatelessWidget {
 
 class ItemStatsSimple extends StatelessWidget {
   final String itemName;
-  final String type;
+  final dynamic type;
 
   const ItemStatsSimple({
     Key? key,
@@ -93,7 +93,7 @@ class ItemStatsSimple extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          type,
+          type.toString(),
           style: Theme.of(context).primaryTextTheme.bodyText1,
         ),
       ),

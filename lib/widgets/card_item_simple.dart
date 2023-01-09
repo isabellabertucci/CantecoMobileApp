@@ -1,3 +1,4 @@
+import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,10 +23,16 @@ class CardItemSimple extends StatelessWidget {
       child: InkWell(
         onTap: () => onTap(),
         child: ListTile(
-          leading: SizedBox(
-            width: 25,
-            height: double.infinity,
-            child: SvgPicture.asset(icon),
+          leading: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: CustomTheme.cultured,
+            ),
+            width: 50,
+            height: 50,
+            child: SvgPicture.asset(
+              icon,
+            ),
           ),
           title: Text(itemName,
               style: Theme.of(context).primaryTextTheme.subtitle1),

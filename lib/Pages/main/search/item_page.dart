@@ -1,5 +1,6 @@
 import 'package:canteco_app/models/food.dart';
 import 'package:flutter/material.dart';
+import '../../../utils/assets.dart';
 import '../../../utils/theme.dart';
 import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
@@ -100,10 +101,12 @@ class _ItemPageState extends State<ItemPage> {
               ),
               const SizedBox(height: 20),
               ItemStatsSimple(
+                image: Assets.imgAgua,
                 itemName: 'Water',
                 type: "${food.waterImpact} liters",
               ),
               ItemStatsSimple(
+                image: Assets.imgCo2,
                 itemName: 'Carbon',
                 type: "${food.carbonimpact} Coe2",
               ),

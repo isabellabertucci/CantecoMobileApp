@@ -6,6 +6,8 @@ import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
+/* import 'package:path_provider/path_provider.dart'; 
+import 'package:path/path.dart';  */
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -20,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void _showOptions() {
     if (Platform.isIOS) {
       showCupertinoModalPopup(
-        context: context,
+        context: context, //
         builder: (BuildContext context) => CupertinoActionSheet(
           title: const Text('Select An Option'),
           actions: <Widget>[
@@ -43,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
       );
     } else {
       showModalBottomSheet(
-          context: context,
+          context: context, //
           builder: (context) {
             return Column(
               mainAxisSize: MainAxisSize.min,
@@ -73,11 +75,20 @@ class _ProfilePageState extends State<ProfilePage> {
       if (image == null) return;
 
       final imageTemporary = File(image.path);
-      setState(() => this.image = imageTemporary);
+      /* final imagePermanent = await saveImagePermanently(image.path);  */
+      setState(() => this.image = imageTemporary); //
     } on PlatformException catch (e) {
       print('failed: $e');
     }
   }
+
+/*   Future<File> saveImagePermanently(String imagePath) async {
+    //
+    final directory = await getApplicationDocumentsDirectory(); //
+    final name = basename(imagePath); //
+    final image = File('${directory.path}/$name'); //
+    return File(imagePath).copy(image.path); //
+  } */
 
   @override
   Widget build(BuildContext context) {

@@ -3,13 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 class InputSearch extends StatelessWidget {
+  final TextEditingController controller;
   final String hint;
   final String icon;
+  final dynamic onchange;
 
   const InputSearch({
     super.key,
     required this.hint,
     required this.icon,
+    required this.controller,
+    required this.onchange,
   });
 
   @override
@@ -21,10 +25,9 @@ class InputSearch extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: TextFormField(
+          controller: controller,
           decoration: InputDecoration(
             border: InputBorder.none,
-            /* border foitirar a linha que cria do textField */
-
             hintText: hint,
             hintStyle: Theme.of(context)
                 .primaryTextTheme
@@ -36,6 +39,7 @@ class InputSearch extends StatelessWidget {
               icon: SvgPicture.asset(icon, width: 25, height: 25),
             ),
           ),
+          onChanged: onchange,
         ),
       ),
     );

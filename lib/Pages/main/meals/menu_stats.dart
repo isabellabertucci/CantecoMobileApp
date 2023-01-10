@@ -1,10 +1,12 @@
+import 'package:canteco_app/Pages/main/meals/water_page.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import '../../../widgets/button_lunch_dinner.dart';
 import '../../../widgets/custom_bar_chart.dart';
-import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
 import '../../../widgets/custom_pop_up.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'carbon_page.dart';
 
 class MenuStats extends StatefulWidget {
   final String value;
@@ -14,7 +16,27 @@ class MenuStats extends StatefulWidget {
   State<MenuStats> createState() => _MenuStatstate();
 }
 
-class _MenuStatstate extends State<MenuStats> {
+List<Widget> pages = [
+  const WaterPage(),
+  const CarbonPage(),
+];
+
+class _MenuStatstate extends State<MenuStats>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   final List<BarChartModel> data = [
     BarChartModel(
       item: "Pasta",
@@ -93,42 +115,21 @@ class _MenuStatstate extends State<MenuStats> {
               ),
 
               /* ITENS */
-
-              const SizedBox(
-                height: 20,
-              ),
-              ItemStats(
-                itemName: 'Pasta',
-                quantity: '125gr',
-                impact: 200,
-                color: Colors.purple[300],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const ItemStats(
-                itemName: 'Beef',
-                quantity: '100gr',
-                impact: 450,
-                color: Colors.blue,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const ItemStats(
-                itemName: 'Carrot',
-                quantity: '20gr',
-                impact: 20,
-                color: Colors.green,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
+              ButtonLunchDinner(
+                  title: 'Water',
+                  titleTwo: 'Carbon',
+                  tabController: _tabController),
+              Expanded(
+                  child: TabBarView(
+                controller: _tabController,
+                children: [
+                  pages[0],
+                  pages[1],
+                ],
+              )),
 
               /* NUTRITIONAL VALUE */
-              const SizedBox(
-                height: 15,
-              ),
+
               Text(
                 'Nutritional Value',
                 style: Theme.of(context).primaryTextTheme.headline1,

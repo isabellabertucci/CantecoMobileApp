@@ -27,7 +27,7 @@ class Lunch extends StatelessWidget {
           children: [
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icClockC,
+                assetName: Assets.imgPeixe,
                 text: 'Tuna pasta',
                 itemKcal: '155 Kcal',
                 onTap: () => Navigator.of(context).push(
@@ -40,7 +40,7 @@ class Lunch extends StatelessWidget {
             const SizedBox(width: 16),
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icClockC,
+                assetName: Assets.imgVaca,
                 text: 'Bean bolognese',
                 itemKcal: '155 Kcal',
                 onTap: () => Navigator.of(context).push(
@@ -58,7 +58,7 @@ class Lunch extends StatelessWidget {
           children: [
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icClockC,
+                assetName: Assets.imgVaca,
                 text: 'Chicken with pasta',
                 itemKcal: '155 Kcal',
                 onTap: () => Navigator.of(context).push(
@@ -72,7 +72,7 @@ class Lunch extends StatelessWidget {
             const SizedBox(width: 16),
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icClockC,
+                assetName: Assets.imgCenoura,
                 text: 'Sautéed Legumes',
                 itemKcal: '155 kcal',
                 onTap: () => Navigator.of(context).push(

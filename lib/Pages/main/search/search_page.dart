@@ -13,8 +13,11 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  final _textController = TextEditingController();
   String value = '';
-  var foodList = [
+  List<Food> searchFoodList = [];
+
+  List<Food> foodList = [
     Food(
         itemName: "Tuna",
         img: Assets.imgPeixe,
@@ -135,7 +138,12 @@ class _SearchPageState extends State<SearchPage> {
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
-                const InputSearch(hint: 'Search', icon: Assets.icSeachC),
+                InputSearch(
+                  hint: 'Search',
+                  icon: Assets.icSeachC,
+                  controller: _textController,
+                  onchange: searchItems,
+                ),
                 const SizedBox(height: 20),
                 Row(
                   children: [
@@ -147,27 +155,56 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 // Image.asset(name)
                 const SizedBox(height: 20),
-                ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: foodList.length,
-                  itemBuilder: (context, index) {
-                    return CardItemSimple(
-                      onTap: () => Navigator.pushNamed(
-                        context,
-                        Routes.individualItemPage,
-                        arguments: foodList[index],
-                      ),
-                      icon: (foodList[index].img),
-                      itemName: foodList[index].itemName,
-                    );
-                  },
-                ),
+                _listbuilder(
+                    searchFoodList.isEmpty ? foodList : searchFoodList),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  /*  */
+  /*  */
+  /* funcoes criadas */
+  /*  */
+  /*  */
+
+  /* builder */
+
+  Widget _listbuilder(List<Food> foodList) {
+    return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: foodList.length,
+      itemBuilder: (context, index) {
+        final item = foodList[index];
+        return CardItemSimple(
+          onTap: () => Navigator.pushNamed(
+            context,
+            Routes.individualItemPage,
+            arguments: item,
+          ),
+          icon: (item.img),
+          itemName: item.itemName,
+        );
+      },
+    );
+  }
+
+/* pesquisa */
+
+  void searchItems(String query) {
+    final suggestion = foodList.where((Food food) {
+      final itemTitle = food.itemName.toLowerCase();
+      final input = query.toLowerCase();
+
+      return itemTitle.contains(input);
+    }).toList();
+
+    setState(() {
+      searchFoodList = suggestion;
+    });
   }
 }

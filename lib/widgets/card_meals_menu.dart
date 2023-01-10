@@ -36,8 +36,8 @@ class CardMealsMenu extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     assetName,
-                    width: 80,
-                    height: 80,
+                    width: 110,
+                    height: 110,
                   ),
                   const SizedBox(height: 10),
                 ],

@@ -77,7 +77,10 @@ class _MealsPageState extends State<MealsPage>
                 ),
                 const InputDate(text: 'Today', icon: Assets.icAngle),
                 const SizedBox(height: 20),
-                ButtonLunchDinner(tabController: _tabController),
+                ButtonLunchDinner(
+                    title: 'Lunch',
+                    titleTwo: 'Dinner',
+                    tabController: _tabController),
                 const SizedBox(
                   height: 20,
                 ),

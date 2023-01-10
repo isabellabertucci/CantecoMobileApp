@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../utils/theme.dart';
 
 class ItemStats extends StatelessWidget {
   final String itemName;
   final String quantity;
   final int impact;
   final dynamic color;
+  final dynamic image;
 
   const ItemStats({
     Key? key,
@@ -12,6 +16,7 @@ class ItemStats extends StatelessWidget {
     required this.quantity,
     required this.impact,
     required this.color,
+    this.image,
   }) : super(key: key);
 
   @override
@@ -59,20 +64,14 @@ class ItemStats extends StatelessWidget {
 class ItemStatsSimple extends StatelessWidget {
   final String itemName;
   final dynamic type;
+  final dynamic image;
 
   const ItemStatsSimple({
     Key? key,
     required this.itemName,
     required this.type,
+    required this.image,
   }) : super(key: key);
-
-  /*  final List<Items> items_data = [
-    ItemStatsSimple(itemName: 'Rice'),
-    ItemStatsSimple(itemName: 'Beans'),
-    ItemStatsSimple(itemName: 'Meat'),
-    ItemStatsSimple(itemName: 'Tuna'),
-    ItemStatsSimple(itemName: 'Pasta'),
-  ]; */
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +79,18 @@ class ItemStatsSimple extends StatelessWidget {
       child: ListTile(
         leading: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            FlutterLogo(),
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: CustomTheme.cultured,
+              ),
+              child: SvgPicture.asset(
+                image,
+                width: 50,
+                height: 50,
+              ),
+            )
           ],
         ),
         title: Text(

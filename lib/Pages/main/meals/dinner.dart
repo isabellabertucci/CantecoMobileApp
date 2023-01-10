@@ -27,7 +27,7 @@ class Dinner extends StatelessWidget {
           children: [
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icDatabase,
+                assetName: Assets.imgPeixe,
                 text: 'Codfish w/ potatoes',
                 itemKcal: '421 Kcal',
                 onTap: () => Navigator.of(context).push(
@@ -41,13 +41,13 @@ class Dinner extends StatelessWidget {
             const SizedBox(width: 16),
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icDatabase,
-                text: 'Chicken Rice',
+                assetName: Assets.imgPeixe,
+                text: 'Fish sticks Rice',
                 itemKcal: '362 Kcal',
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        const MenuStats(value: "Chicken Rice"),
+                        const MenuStats(value: "Fish sticks Rice"),
                   ),
                 ),
               ),
@@ -59,7 +59,7 @@ class Dinner extends StatelessWidget {
           children: [
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icDatabase,
+                assetName: Assets.imgVaca,
                 text: 'Roasted Beef',
                 itemKcal: '443 Kcal',
                 onTap: () => Navigator.of(context).push(
@@ -73,7 +73,7 @@ class Dinner extends StatelessWidget {
             const SizedBox(width: 16),
             Expanded(
               child: CardMealsMenu(
-                assetName: Assets.icDatabase,
+                assetName: Assets.imgCenoura,
                 text: 'Veggie Paella',
                 itemKcal: '355 kcal',
                 onTap: () => Navigator.of(context).push(

@@ -169,7 +169,6 @@ class _SearchPageState extends State<SearchPage> {
   /*  */
   /* funcoes criadas */
   /*  */
-  /*  */
 
   /* builder */
 

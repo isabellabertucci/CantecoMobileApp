@@ -56,18 +56,29 @@ class _ItemPageState extends State<ItemPage> {
                       width: 8,
                     )),
                 // inner one
-                child: Container(
-                  width: 135.0,
-                  height: 135.0,
-                  alignment: Alignment.center,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: CustomTheme.cultured,
-                  ),
-                  child: SvgPicture.asset(
-                    food.img,
-                    width: 120,
-                  ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Container(
+                      width: 135.0,
+                      height: 135.0,
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: CustomTheme.cultured,
+                      ),
+                      child: SvgPicture.asset(
+                        food.img,
+                        width: 120,
+                      ),
+                    ),
+                    const Positioned(
+                        bottom: 10,
+                        child: Text(
+                          '1 kg',
+                          style: TextStyle(color: CustomTheme.silver),
+                        ))
+                  ],
                 ),
               ),
               const SizedBox(height: 50),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/assets.dart';
+import '../utils/theme.dart';
 import 'custom_pop_up.dart';
 
 class SchedulesMeal extends StatefulWidget {
@@ -33,40 +34,50 @@ class _SchedulesMealState extends State<SchedulesMeal> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(widget.icon),
-          ],
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: CustomTheme.eerieBlack.withOpacity(0.04),
+          spreadRadius: 0,
+          blurRadius: 3,
+          offset: const Offset(0, 1),
         ),
-        title: Row(
-          children: [
-            Text(
-              widget.mealName,
-              style: Theme.of(context).primaryTextTheme.headline3,
+      ], borderRadius: BorderRadius.circular(10)),
+      child: Card(
+        child: ListTile(
+          leading: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(widget.icon),
+            ],
+          ),
+          title: Row(
+            children: [
+              Text(
+                widget.mealName,
+                style: Theme.of(context).primaryTextTheme.headline3,
+              ),
+            ],
+          ),
+          subtitle: Row(
+            children: [
+              Text(
+                '${widget.kcal} kcal | ',
+                style: Theme.of(context).primaryTextTheme.bodyText1,
+              ),
+              Text(
+                widget.time,
+                style: Theme.of(context).primaryTextTheme.bodyText1,
+              ),
+            ],
+          ),
+          trailing: InkWell(
+            onTap: _showDialog,
+            child: SvgPicture.asset(
+              Assets.icClose,
+              height: 12,
+              width: 12,
             ),
-          ],
-        ),
-        subtitle: Row(
-          children: [
-            Text(
-              '${widget.kcal} kcal | ',
-              style: Theme.of(context).primaryTextTheme.bodyText1,
-            ),
-            Text(
-              widget.time,
-              style: Theme.of(context).primaryTextTheme.bodyText1,
-            ),
-          ],
-        ),
-        trailing: InkWell(
-          onTap: _showDialog,
-          child: SvgPicture.asset(
-            Assets.icClose,
-            height: 12,
-            width: 12,
           ),
         ),
       ),

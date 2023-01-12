@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../utils/theme.dart';
+
 class CardMealsMenu extends StatelessWidget {
   final String assetName;
   final String text;
@@ -20,27 +22,37 @@ class CardMealsMenu extends StatelessWidget {
 
     return Column(
       children: [
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: radius,
-          ),
-          elevation: 2,
-          child: InkWell(
-            onTap: () => onTap(),
-            borderRadius: radius,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: 125,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    assetName,
-                    width: 110,
-                    height: 110,
-                  ),
-                  const SizedBox(height: 10),
-                ],
+        Container(
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+              color: CustomTheme.eerieBlack.withOpacity(0.04),
+              spreadRadius: 0,
+              blurRadius: 3,
+              offset: const Offset(0, 1),
+            ),
+          ], borderRadius: BorderRadius.circular(10)),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: radius,
+            ),
+            elevation: 2,
+            child: InkWell(
+              onTap: () => onTap(),
+              borderRadius: radius,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 125,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      assetName,
+                      width: 110,
+                      height: 110,
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
               ),
             ),
           ),

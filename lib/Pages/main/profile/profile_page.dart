@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:canteco_app/utils/database/image.dart';
+import 'package:canteco_app/utils/routes.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 /* import 'package:path_provider/path_provider.dart'; 
 import 'package:path/path.dart';  */
 
@@ -19,10 +22,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  void _showOptions() {
+  final sharedPreferences = LocalSharedPreferences();
+  File? image;
+
+  void _showOptions(BuildContext context) {
     if (Platform.isIOS) {
       showCupertinoModalPopup(
-        context: context, //
+        context: context,
         builder: (BuildContext context) => CupertinoActionSheet(
           title: const Text('Select An Option'),
           actions: <Widget>[
@@ -53,14 +59,18 @@ class _ProfilePageState extends State<ProfilePage> {
                 ListTile(
                   leading: const Icon(Icons.photo),
                   title: const Text('Camera'),
-                  onTap: () =>
-                      {pickImage(ImageSource.camera), Navigator.pop(context)},
+                  onTap: () => {
+                    pickImage(ImageSource.camera),
+                    Navigator.pop(context),
+                  },
                 ),
                 ListTile(
                   leading: const Icon(Icons.library_add),
                   title: const Text('Library'),
-                  onTap: () =>
-                      {pickImage(ImageSource.gallery), Navigator.pop(context)},
+                  onTap: () => {
+                    pickImage(ImageSource.gallery),
+                    Navigator.pop(context),
+                  },
                 ),
               ],
             );
@@ -68,27 +78,32 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  File? image;
   Future pickImage(ImageSource source) async {
     try {
       final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
 
       final imageTemporary = File(image.path);
-      /* final imagePermanent = await saveImagePermanently(image.path);  */
-      setState(() => this.image = imageTemporary); //
+      sharedPreferences.savePhoto(imageTemporary.path);
+      setState(() => this.image = imageTemporary);
     } on PlatformException catch (e) {
       print('failed: $e');
     }
   }
 
-/*   Future<File> saveImagePermanently(String imagePath) async {
-    //
-    final directory = await getApplicationDocumentsDirectory(); //
-    final name = basename(imagePath); //
-    final image = File('${directory.path}/$name'); //
-    return File(imagePath).copy(image.path); //
-  } */
+  @override
+  void initState() {
+    sharedPreferences.getPhoto().then((String? photo) => {
+          if (photo != null) {setState(() => image = File(photo))}
+        });
+    super.initState();
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final image = File('${directory.path}/$imagePath');
+    return File(imagePath).copy(image.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   children: [
                     InkWell(
-                      onTap: () => _showOptions(),
+                      onTap: () => _showOptions(context),
                       child: image != null
                           ? ClipRRect(
                               borderRadius: BorderRadius.circular(60),
@@ -257,18 +272,22 @@ class _ProfilePageState extends State<ProfilePage> {
                     )),
               ),
               const SizedBox(height: 35),
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    Assets.icLogoutU,
-                    height: 20,
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Log Out',
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
-                  ),
-                ],
+              GestureDetector(
+                onTap: () => Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.loginPage, (route) => false),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      Assets.icLogoutU,
+                      height: 20,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'Log Out',
+                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                    ),
+                  ],
+                ),
               )
             ],
           ),

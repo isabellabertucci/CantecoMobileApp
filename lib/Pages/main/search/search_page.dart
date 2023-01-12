@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import '../../../models/food.dart';
 import '../../../utils/assets.dart';
 import '../../../utils/routes.dart';
+import '../../../utils/theme.dart';
 import '../../../widgets/card_item_simple.dart';
 import '../../../widgets/input_search.dart';
+import 'package:sticky_headers/sticky_headers.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -138,25 +140,36 @@ class _SearchPageState extends State<SearchPage> {
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
-                InputSearch(
-                  hint: 'Search',
-                  icon: Assets.icSeachC,
-                  controller: _textController,
-                  onchange: searchItems,
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  children: [
-                    Text(
-                      'All',
-                      style: Theme.of(context).primaryTextTheme.subtitle1,
+                StickyHeader(
+                    header: Container(
+                      alignment: Alignment.center,
+                      color: CustomTheme.white,
+                      height: 75,
+                      child: InputSearch(
+                        hint: 'Search',
+                        icon: Assets.icSeachC,
+                        controller: _textController,
+                        onchange: searchItems,
+                      ),
                     ),
-                  ],
-                ),
-                // Image.asset(name)
-                const SizedBox(height: 20),
-                _listbuilder(
-                    searchFoodList.isEmpty ? foodList : searchFoodList),
+                    content: Column(
+                      children: [
+                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Text(
+                              'All',
+                              style:
+                                  Theme.of(context).primaryTextTheme.subtitle1,
+                            ),
+                          ],
+                        ),
+                        // Image.asset(name)
+                        const SizedBox(height: 20),
+                        _listbuilder(
+                            searchFoodList.isEmpty ? foodList : searchFoodList)
+                      ],
+                    )),
               ],
             ),
           ),

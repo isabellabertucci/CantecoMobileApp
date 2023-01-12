@@ -28,6 +28,7 @@ class CustomTheme {
       primaryTextTheme: getTextTheme(textColor: eerieBlack),
       textTheme: getTextTheme(textColor: silver),
       elevatedButtonTheme: getButtonTheme(),
+      scaffoldBackgroundColor: white,
       brightness: Brightness.light,
       errorColor: redPigment,
     );

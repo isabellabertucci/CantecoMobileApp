@@ -1,24 +1,49 @@
 import 'package:canteco_app/widgets/custom_buttom3.dart';
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import '../utils/theme.dart';
 
-class PopUpDialog extends StatelessWidget {
+class PopUpDialog extends StatefulWidget {
   final String title;
   final String description;
+
   const PopUpDialog(
       {super.key, required this.title, required this.description});
+
+  @override
+  State<PopUpDialog> createState() => _PopUpDialogState();
+}
+
+class _PopUpDialogState extends State<PopUpDialog> {
+  bool isPLaying = false;
+  final controller = ConfettiController();
+  @override
+  void initState() {
+    super.initState();
+
+    controller.addListener(() {
+      isPLaying = controller.state == ConfettiControllerState.playing;
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       title: Text(
-        title,
+        widget.title,
         textAlign: TextAlign.center,
         style: Theme.of(context).primaryTextTheme.headline1,
       ),
       content: Text(
-        description,
+        widget.description,
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.subtitle1,
       ),
@@ -44,8 +69,23 @@ class PopUpDialog extends StatelessWidget {
                 text: "Confirm",
                 textColor: CustomTheme.white,
                 onTap: () {
-                  //fazer algo
+                  if (isPLaying) {
+                    controller.stop();
+                  } else {
+                    controller.play();
+                  }
                 },
+              ),
+              ConfettiWidget(
+                confettiController: controller,
+                shouldLoop: true,
+                blastDirection: -3.14 / 2,
+                colors: const [
+                  CustomTheme.ultramarineBlue,
+                  CustomTheme.white,
+                ],
+                minBlastForce: 10,
+                maxBlastForce: 50,
               ),
             ],
           ),

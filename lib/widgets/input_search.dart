@@ -33,6 +33,7 @@ class InputSearch extends StatelessWidget {
                 .primaryTextTheme
                 .subtitle1
                 ?.copyWith(color: CustomTheme.silver),
+            labelStyle: Theme.of(context).primaryTextTheme.headline3,
             suffixIcon: IconButton(
               onPressed: null,
               /* ele é um icon button */

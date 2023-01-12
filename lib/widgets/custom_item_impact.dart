@@ -21,39 +21,49 @@ class ItemStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            FlutterLogo(),
-          ],
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: CustomTheme.eerieBlack.withOpacity(0.04),
+          spreadRadius: 0,
+          blurRadius: 3,
+          offset: const Offset(0, 1),
         ),
-        title: Row(
-          children: [
-            Text(
-              itemName,
-              style: Theme.of(context).primaryTextTheme.headline3,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 5.0),
-              child: Text(
-                quantity,
-                style: Theme.of(context).textTheme.subtitle2,
+      ], borderRadius: BorderRadius.circular(10)),
+      child: Card(
+        child: ListTile(
+          leading: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              FlutterLogo(),
+            ],
+          ),
+          title: Row(
+            children: [
+              Text(
+                itemName,
+                style: Theme.of(context).primaryTextTheme.headline3,
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0),
+                child: Text(
+                  quantity,
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+              ),
+            ],
+          ),
+          subtitle: Text(
+            '$impact liters',
+            style: Theme.of(context).primaryTextTheme.bodyText1,
+          ),
+          trailing: Container(
+            height: 10,
+            width: 10,
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
             ),
-          ],
-        ),
-        subtitle: Text(
-          '$impact liters',
-          style: Theme.of(context).primaryTextTheme.bodyText1,
-        ),
-        trailing: Container(
-          height: 10,
-          width: 10,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
           ),
         ),
       ),
@@ -87,8 +97,8 @@ class ItemStatsSimple extends StatelessWidget {
               ),
               child: SvgPicture.asset(
                 image,
-                width: 50,
-                height: 50,
+                width: 45,
+                height: 45,
               ),
             )
           ],

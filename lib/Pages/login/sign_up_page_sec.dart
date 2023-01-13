@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import '../../utils/routes.dart';
 import '../../widgets/custom_text_field.dart';
 
+//Pagina criada por causa do design mas não usada na criação de conta
+//devido a simplificar o processo de sign up
+
 class SignUpPageSec extends StatefulWidget {
   const SignUpPageSec({super.key});
 

@@ -27,6 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   void _showOptions(BuildContext context) {
     if (Platform.isIOS) {
+      //ios Modal
       showCupertinoModalPopup(
         context: context,
         builder: (BuildContext context) => CupertinoActionSheet(
@@ -50,6 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       );
     } else {
+      //Android Modal
       showModalBottomSheet(
           context: context, //
           builder: (context) {
@@ -213,7 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 10),
               Card(
                 color: CustomTheme.cultured,
                 shape: RoundedRectangleBorder(
@@ -222,7 +224,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 elevation: 0,
                 child: SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    height: 205,
+                    height: 190,
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Column(

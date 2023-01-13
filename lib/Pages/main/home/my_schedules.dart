@@ -25,7 +25,7 @@ class _MySchedulesState extends State<MySchedules> {
                 children: [
                   InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, Routes.menuPage);
+                        Navigator.pop(context);
                       },
                       child: Icon(Icons.adaptive.arrow_back)),
                   Text(

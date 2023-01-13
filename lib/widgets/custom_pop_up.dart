@@ -1,4 +1,4 @@
-import 'package:canteco_app/widgets/custom_buttom3.dart';
+import 'package:canteco_app/widgets/custom_button3.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import '../utils/theme.dart';
@@ -51,7 +51,7 @@ class _PopUpDialogState extends State<PopUpDialog> {
         Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomButton3(
                 backgroundColor: const Color.fromARGB(255, 232, 232, 232),

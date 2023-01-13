@@ -67,9 +67,12 @@ class _ItemPageState extends State<ItemPage> {
                         shape: BoxShape.circle,
                         color: CustomTheme.cultured,
                       ),
-                      child: SvgPicture.asset(
-                        food.img,
-                        width: 120,
+                      child: Hero(
+                        tag: "herotag${food.itemName}",
+                        child: SvgPicture.asset(
+                          food.img,
+                          width: 120,
+                        ),
                       ),
                     ),
                     const Positioned(

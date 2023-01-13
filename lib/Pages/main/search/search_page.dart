@@ -93,7 +93,7 @@ class _SearchPageState extends State<SearchPage> {
         waterImpact: 2445,
         carbonimpact: 3),
     Food(
-        itemName: "Peas",
+        itemName: "Milk",
         img: Assets.imgFeijao,
         kcal: 810,
         protein: 80,
@@ -192,14 +192,17 @@ class _SearchPageState extends State<SearchPage> {
       itemCount: foodList.length,
       itemBuilder: (context, index) {
         final item = foodList[index];
-        return CardItemSimple(
-          onTap: () => Navigator.pushNamed(
-            context,
-            Routes.individualItemPage,
-            arguments: item,
+        return Hero(
+          tag: "herotag${foodList[index].itemName}",
+          child: CardItemSimple(
+            onTap: () => Navigator.pushNamed(
+              context,
+              Routes.individualItemPage,
+              arguments: item,
+            ),
+            icon: (item.img),
+            itemName: item.itemName,
           ),
-          icon: (item.img),
-          itemName: item.itemName,
         );
       },
     );

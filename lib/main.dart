@@ -1,3 +1,5 @@
+import 'package:canteco_app/Langs/l10n.dart';
+import 'package:canteco_app/Pages/a.dart';
 import 'package:canteco_app/Pages/login/onboarding.dart';
 import 'package:canteco_app/Pages/login/sign_up_page.dart';
 import 'package:canteco_app/Pages/login/sign_up_page_sec.dart';
@@ -13,7 +15,9 @@ import 'package:canteco_app/Pages/main/profile/profile_page.dart';
 import 'package:canteco_app/utils/routes.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'Pages/login/login_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,13 +28,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Canteco',
-      theme: CustomTheme.lightMode(context),
-      themeMode: ThemeMode.light,
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.onboardingPage,
-      routes: getRoutes(context),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 900),
+        child: MaterialApp(
+          title: 'Canteco',
+          theme: CustomTheme.lightMode(context),
+          themeMode: ThemeMode.light,
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.a,
+          routes: getRoutes(context),
+          supportedLocales: L10n.all,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+        ),
+      ),
     );
   }
 
@@ -49,6 +65,7 @@ class MyApp extends StatelessWidget {
       Routes.menuStatsPage: (context) => const MenuStats(value: ""),
       Routes.searchPage: (context) => const SearchPage(),
       Routes.profilePage: (context) => const ProfilePage(),
+      Routes.a: (context) => const MyWidget(),
     };
   }
 }

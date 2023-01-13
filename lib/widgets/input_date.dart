@@ -18,13 +18,17 @@ class InputDate extends StatefulWidget {
 }
 
 class _InputDateState extends State<InputDate> {
+  DateTime _dateTime = DateTime.now();
+
   void _showDatePicker() {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2023),
       lastDate: DateTime(2024),
-    );
+    ).then((value) => setState(() {
+          _dateTime = value!;
+        }));
   }
 
   @override
@@ -34,7 +38,7 @@ class _InputDateState extends State<InputDate> {
       color: CustomTheme.cultured,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: ListTile(
-        title: Text(widget.text,
+        title: Text("${_dateTime.day} / ${_dateTime.month} / ${_dateTime.year}",
             style: Theme.of(context).primaryTextTheme.subtitle1),
         trailing: InkWell(
           onTap: _showDatePicker,

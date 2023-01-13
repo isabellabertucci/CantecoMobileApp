@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../utils/routes.dart';
 import '../../widgets/custom_button.dart';
+import '../../widgets/custom_pop_up_loader.dart';
 import '../../widgets/custom_text_field.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,20 +21,32 @@ class _LoginPageState extends State<LoginPage> {
   var _showEmailError = false;
   var _showPasswordError = false;
 
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const PopUpLoader(
+              title: 'Loading', description: 'this won\'t take long');
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
                 const Spacer(),
-                Image.asset(
-                  "assets/images/logo_txt.png",
-                  height: 80,
+                Hero(
+                  tag: 'Logo',
+                  child: Image.asset(
+                    "assets/images/logo_txt.png",
+                  ),
                 ),
                 const SizedBox(height: 40),
                 Center(
@@ -67,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                         password: _passwordController.text);
                     if (loginResult >= 200 && loginResult <= 299) {
                       setState(() {
+                        _showDialog();
                         Navigator.pushNamedAndRemoveUntil(
                             context, Routes.onboardingPage, (route) => false);
                       });

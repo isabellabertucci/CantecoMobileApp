@@ -1,4 +1,3 @@
 class ApiUrl {
-  static const baseUrl =
-      "https://2316-2001-818-df1d-6700-45ca-64e2-4f09-861f.eu.ngrok.io";
+  static const baseUrl = "https://8a1b-89-154-1-116.eu.ngrok.io";
 }

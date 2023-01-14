@@ -6,6 +6,7 @@ import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'meals/meals_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -43,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: currentIndex == 0
                     ? CustomTheme.ultramarineBlue
                     : CustomTheme.silver),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(Assets.icUtensilsU,
@@ -51,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: currentIndex == 1
                     ? CustomTheme.ultramarineBlue
                     : CustomTheme.silver),
-            label: 'Meals',
+            label: AppLocalizations.of(context)!.meals,
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(Assets.icSeachU,
@@ -59,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: currentIndex == 2
                     ? CustomTheme.ultramarineBlue
                     : CustomTheme.silver),
-            label: 'Search',
+            label: AppLocalizations.of(context)!.search,
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(Assets.icUserU,
@@ -67,7 +68,7 @@ class _MainScreenState extends State<MainScreen> {
                 color: currentIndex == 3
                     ? CustomTheme.ultramarineBlue
                     : CustomTheme.silver),
-            label: 'Profile',
+            label: AppLocalizations.of(context)!.profile,
           ),
         ],
       ),

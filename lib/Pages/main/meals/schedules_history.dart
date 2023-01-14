@@ -4,6 +4,7 @@ import '../../../utils/assets.dart';
 import '../../../utils/routes.dart';
 import '../../../widgets/custom_schedules_meal.dart';
 import '../../../widgets/input_date.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyHistorySchedules extends StatefulWidget {
   const MyHistorySchedules({super.key});
@@ -32,7 +33,7 @@ class _MyHistorySchedulesState extends State<MyHistorySchedules> {
                     child: Icon(Icons.adaptive.arrow_back),
                   ),
                   Text(
-                    'History',
+                    AppLocalizations.of(context)!.history,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   SvgPicture.asset(
@@ -49,7 +50,7 @@ class _MyHistorySchedulesState extends State<MyHistorySchedules> {
               Row(
                 children: [
                   Text(
-                    'Date',
+                    AppLocalizations.of(context)!.date,
                     style: Theme.of(context).primaryTextTheme.headline3,
                   ),
                   const SizedBox(
@@ -78,7 +79,7 @@ class _MyHistorySchedulesState extends State<MyHistorySchedules> {
                 mealName: 'Sautéed Reindeer',
                 time: 'Lunch from 12:30 - 14:30',
                 kcal: 619,
-                icon: Assets.icCamera,
+                icon: Assets.imgCenoura,
               ),
             ],
           ),

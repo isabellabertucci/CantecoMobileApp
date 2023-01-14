@@ -5,6 +5,7 @@ import '../../../utils/theme.dart';
 import '../../../widgets/custom_item_impact.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ItemPage extends StatefulWidget {
   const ItemPage({super.key});
@@ -18,6 +19,7 @@ class _ItemPageState extends State<ItemPage> {
   Widget build(BuildContext context) {
     final food = ModalRoute.of(context)!.settings.arguments as Food;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -86,7 +88,7 @@ class _ItemPageState extends State<ItemPage> {
               ),
               const SizedBox(height: 50),
               Text(
-                'Nutritional Value',
+                AppLocalizations.of(context)!.nutritional,
                 style: Theme.of(context).primaryTextTheme.headline1,
               ),
               const SizedBox(height: 20),
@@ -97,10 +99,14 @@ class _ItemPageState extends State<ItemPage> {
                   children: [
                     NutriStats(statsInfo: 'kcal', statsNumber: food.kcal),
                     NutriStats(
-                        statsInfo: 'protein', statsNumber: '${food.protein}g'),
-                    NutriStats(statsInfo: 'fat', statsNumber: '${food.fat}g'),
+                        statsInfo: AppLocalizations.of(context)!.protein,
+                        statsNumber: '${food.protein}g'),
                     NutriStats(
-                        statsInfo: 'carbs', statsNumber: '${food.carbs}g'),
+                        statsInfo: AppLocalizations.of(context)!.fat,
+                        statsNumber: '${food.fat}g'),
+                    NutriStats(
+                        statsInfo: AppLocalizations.of(context)!.carbs,
+                        statsNumber: '${food.carbs}g'),
                   ],
                 ),
               ),
@@ -108,7 +114,7 @@ class _ItemPageState extends State<ItemPage> {
               Row(
                 children: [
                   Text(
-                    'Impact',
+                    AppLocalizations.of(context)!.impact,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                 ],
@@ -116,12 +122,13 @@ class _ItemPageState extends State<ItemPage> {
               const SizedBox(height: 20),
               ItemStatsSimple(
                 image: Assets.imgAgua,
-                itemName: 'Water',
-                type: "${food.waterImpact} liters",
+                itemName: AppLocalizations.of(context)!.water,
+                type:
+                    "${food.waterImpact} ${AppLocalizations.of(context)!.liters}",
               ),
               ItemStatsSimple(
                 image: Assets.imgCo2,
-                itemName: 'Carbon',
+                itemName: AppLocalizations.of(context)!.carbon,
                 type: "${food.carbonimpact} Coe2",
               ),
             ],

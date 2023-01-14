@@ -2,6 +2,7 @@ import 'package:canteco_app/widgets/custom_button3.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import '../utils/theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PopUpDialog extends StatefulWidget {
   final String title;
@@ -55,7 +56,7 @@ class _PopUpDialogState extends State<PopUpDialog> {
             children: [
               CustomButton3(
                 backgroundColor: const Color.fromARGB(255, 232, 232, 232),
-                text: "Cancel",
+                text: AppLocalizations.of(context)!.cancel,
                 textColor: CustomTheme.ultramarineBlue,
                 onTap: () {
                   Navigator.pop(context);
@@ -66,7 +67,7 @@ class _PopUpDialogState extends State<PopUpDialog> {
               ),
               CustomButton3(
                 backgroundColor: Theme.of(context).primaryColor,
-                text: "Confirm",
+                text: AppLocalizations.of(context)!.confirm,
                 textColor: CustomTheme.white,
                 onTap: () {
                   if (isPLaying) {

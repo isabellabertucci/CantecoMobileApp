@@ -13,5 +13,4 @@ class Routes {
   static const itemPage = "/itemPage";
   static const profilePage = "/profilePage";
   static const individualItemPage = "/individualItemPage";
-  static const a = "/ia";
 }

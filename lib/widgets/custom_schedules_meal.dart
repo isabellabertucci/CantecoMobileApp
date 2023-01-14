@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/assets.dart';
 import '../utils/theme.dart';
 import 'custom_pop_up.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SchedulesMeal extends StatefulWidget {
   final String mealName, time;
@@ -26,9 +27,10 @@ class _SchedulesMealState extends State<SchedulesMeal> {
     showDialog(
         context: context,
         builder: (context) {
-          return const PopUpDialog(
-              title: 'Cancel your order',
-              description: 'Tuna Pasta scheduled for xx/xx/xx');
+          return PopUpDialog(
+              title: AppLocalizations.of(context)!.cancelM,
+              description:
+                  'Tuna Pasta ${AppLocalizations.of(context)!.scheduleFor} xx/xx/xx');
         });
   }
 
@@ -48,13 +50,25 @@ class _SchedulesMealState extends State<SchedulesMeal> {
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(widget.icon),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: CustomTheme.cultured),
+                child: SvgPicture.asset(
+                  widget.icon,
+                  width: 50,
+                  height: 50,
+                ),
+              ),
             ],
           ),
           title: Row(
             children: [
               Text(
                 widget.mealName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                softWrap: false,
                 style: Theme.of(context).primaryTextTheme.headline3,
               ),
             ],

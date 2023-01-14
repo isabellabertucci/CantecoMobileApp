@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../widgets/custom_price_list.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PriceListPage extends StatefulWidget {
   const PriceListPage({super.key});
@@ -29,7 +30,7 @@ class _PriceListPageState extends State<PriceListPage> {
                   child: Icon(Icons.adaptive.arrow_back),
                 ),
                 Text(
-                  'Price List',
+                  AppLocalizations.of(context)!.priceList,
                   style: Theme.of(context).primaryTextTheme.headline1,
                 ),
                 const SizedBox(
@@ -43,15 +44,15 @@ class _PriceListPageState extends State<PriceListPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Users',
+                  AppLocalizations.of(context)!.type,
                   style: Theme.of(context).primaryTextTheme.headline3,
                 ),
                 Text(
-                  'w/ IVA',
+                  AppLocalizations.of(context)!.wIva,
                   style: Theme.of(context).primaryTextTheme.headline3,
                 ),
                 Text(
-                  'w/o IVA',
+                  AppLocalizations.of(context)!.woIva,
                   style: Theme.of(context).primaryTextTheme.headline3,
                 ),
               ],
@@ -59,27 +60,38 @@ class _PriceListPageState extends State<PriceListPage> {
             const SizedBox(
               height: 20,
             ),
-            const PriceList(
-                user: 'Student', withoutIva: '2.75', withIva: '2.75'),
+            PriceList(
+                user: AppLocalizations.of(context)!.student,
+                withoutIva: '2.75',
+                withIva: '2.75'),
             const SizedBox(
               height: 20,
             ),
-            const PriceList(
-                user: 'Teacher', withoutIva: '4.00', withIva: '4.00'),
+            PriceList(
+                user: AppLocalizations.of(context)!.teacher,
+                withoutIva: '4.00',
+                withIva: '4.00'),
             const SizedBox(
               height: 20,
             ),
-            const PriceList(user: 'Guest', withoutIva: '4.00', withIva: '4.00'),
+            PriceList(
+                user: AppLocalizations.of(context)!.guest,
+                withoutIva: '4.00',
+                withIva: '4.00'),
             const SizedBox(
               height: 20,
             ),
-            const PriceList(
-                user: 'Scholarship', withoutIva: '2.25', withIva: '2.25'),
+            PriceList(
+                user: AppLocalizations.of(context)!.scholarship,
+                withoutIva: '2.25',
+                withIva: '2.25'),
             const SizedBox(
               height: 20,
             ),
-            const PriceList(
-                user: 'Employee', withoutIva: '4.00', withIva: '4.00'),
+            PriceList(
+                user: AppLocalizations.of(context)!.employee,
+                withoutIva: '4.00',
+                withIva: '4.00'),
             const SizedBox(
               height: 20,
             ),

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../utils/assets.dart';
 import '../../../utils/routes.dart';
 import '../../../widgets/custom_schedules_meal.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MySchedules extends StatefulWidget {
   const MySchedules({super.key});
@@ -25,17 +26,18 @@ class _MySchedulesState extends State<MySchedules> {
                 children: [
                   InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, Routes.menuPage, (route) => false);
                       },
                       child: Icon(Icons.adaptive.arrow_back)),
                   Text(
-                    'Your Schedules',
+                    AppLocalizations.of(context)!.yourSchedules,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(context,
-                          Routes.yourScheduleHistoryPage, (route) => false);
+                      Navigator.pushNamed(
+                          context, Routes.yourScheduleHistoryPage);
                     },
                     child: SvgPicture.asset(
                       Assets.icClockC,
@@ -54,7 +56,7 @@ class _MySchedulesState extends State<MySchedules> {
                   Column(
                     children: [
                       Text(
-                        'Today',
+                        AppLocalizations.of(context)!.today,
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                       ),
                       const SizedBox(
@@ -68,7 +70,7 @@ class _MySchedulesState extends State<MySchedules> {
                 mealName: 'Classic Chilli',
                 time: 'Lunch from 12:30 - 14:30',
                 kcal: 579,
-                icon: Assets.icCamera,
+                icon: Assets.imgVaca,
               ),
 
               /* mealTommorow */
@@ -80,7 +82,7 @@ class _MySchedulesState extends State<MySchedules> {
                   Column(
                     children: [
                       Text(
-                        'Tomorrow',
+                        AppLocalizations.of(context)!.tomorrow,
                         style: Theme.of(context).primaryTextTheme.subtitle1,
                       ),
                       const SizedBox(
@@ -94,7 +96,7 @@ class _MySchedulesState extends State<MySchedules> {
                 mealName: 'Fish Pasta',
                 time: 'Lunch from 12:30 - 14:30',
                 kcal: 359,
-                icon: Assets.icTrashU,
+                icon: Assets.imgPeixe,
               ),
               const SizedBox(
                 height: 20,
@@ -103,7 +105,7 @@ class _MySchedulesState extends State<MySchedules> {
                 mealName: 'Green Beans with Mushrooms',
                 time: 'Dinner from 19:30 - 21:30',
                 kcal: 393,
-                icon: Assets.icClockU,
+                icon: Assets.imgCenoura,
               )
             ],
           ),

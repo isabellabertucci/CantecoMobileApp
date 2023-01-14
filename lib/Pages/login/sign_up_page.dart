@@ -2,11 +2,10 @@ import 'package:canteco_app/utils/theme.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../../domain/login/login_gateway.dart';
-
 import '../../utils/routes.dart';
 import '../../widgets/custom_text_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignUpPageMain extends StatefulWidget {
   const SignUpPageMain({super.key});
@@ -61,7 +60,7 @@ class _LoginPageState extends State<SignUpPageMain> {
                   ),
                   const SizedBox(height: 25),
                   Text(
-                    'Personal Information',
+                    AppLocalizations.of(context)!.persInfo,
                     style: Theme.of(context).primaryTextTheme.headline2,
                   ),
                   const SizedBox(height: 25),
@@ -72,38 +71,38 @@ class _LoginPageState extends State<SignUpPageMain> {
                       shrinkWrap: true,
                       children: [
                         CustomTextField(
-                          label: 'Full name',
-                          hint: 'Enter your name',
+                          label: AppLocalizations.of(context)!.fullName,
+                          hint: AppLocalizations.of(context)!.enterEmail,
                           isPassword: false,
                           controller: _nameController,
                         ),
                         const SizedBox(height: 20),
                         CustomTextField(
-                          label: 'School Email ',
-                          hint: 'Enter your school email',
+                          label: AppLocalizations.of(context)!.schoolEmail,
+                          hint: AppLocalizations.of(context)!.schoolEmailEnter,
                           errorText:
-                              _showError ? "Emai already registed" : null,
+                              _showError ? "Email already registed" : null,
                           isPassword: false,
                           controller: _emailController,
                         ),
                         const SizedBox(height: 20),
                         CustomTextField(
-                          label: 'User role',
-                          hint: 'Enter your role',
+                          label: AppLocalizations.of(context)!.userRole,
+                          hint: AppLocalizations.of(context)!.userRoleEnter,
                           isPassword: false,
                           controller: _roleController,
                         ),
                         const SizedBox(height: 20),
                         CustomTextField(
-                          label: 'Password',
-                          hint: 'Enter your password',
+                          label: AppLocalizations.of(context)!.registerPassword,
+                          hint: AppLocalizations.of(context)!.enterPassword,
                           isPassword: true,
                           controller: _passwordController,
                         ),
                         const SizedBox(height: 20),
                         CustomTextField(
-                          label: 'Confirm Password',
-                          hint: 'Confirm password',
+                          label: AppLocalizations.of(context)!.confirmPass,
+                          hint: AppLocalizations.of(context)!.confirmPassEnter,
                           isPassword: true,
                           controller: _confirmPasController,
                         ),
@@ -116,7 +115,7 @@ class _LoginPageState extends State<SignUpPageMain> {
                   //botão SignUp
                   CustomButton(
                     textColor: CustomTheme.white,
-                    text: 'Create',
+                    text: AppLocalizations.of(context)!.create,
                     onTap: () async {
                       var loginResult = await _loginGateway.signUp(
                         fullName: _nameController.text,
@@ -144,11 +143,11 @@ class _LoginPageState extends State<SignUpPageMain> {
                       style: const TextStyle(color: Colors.black, fontSize: 16),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'If you already have an account. ',
+                          text: AppLocalizations.of(context)!.ifHave,
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         TextSpan(
-                            text: 'Log In',
+                            text: AppLocalizations.of(context)!.logIn,
                             style: const TextStyle(
                                 color: CustomTheme.ultramarineBlue,
                                 fontWeight: FontWeight.bold),

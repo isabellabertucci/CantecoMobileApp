@@ -5,6 +5,7 @@ import '../../../utils/routes.dart';
 import '../../../widgets/button_lunch_dinner.dart';
 import '../../../widgets/input_date.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MealsPage extends StatefulWidget {
   const MealsPage({super.key});
@@ -54,7 +55,7 @@ class _MealsPageState extends State<MealsPage>
                       child: Icon(Icons.adaptive.arrow_back),
                     ),
                     Text(
-                      'Menu',
+                      AppLocalizations.of(context)!.menu,
                       style: Theme.of(context).primaryTextTheme.headline1,
                     ),
                     const SizedBox(
@@ -67,7 +68,7 @@ class _MealsPageState extends State<MealsPage>
                 Row(
                   children: [
                     Text(
-                      'Date',
+                      AppLocalizations.of(context)!.date,
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ),
                     const SizedBox(
@@ -78,8 +79,8 @@ class _MealsPageState extends State<MealsPage>
                 const InputDate(text: 'Today', icon: Assets.icAngle),
                 const SizedBox(height: 20),
                 ButtonLunchDinner(
-                    title: 'Lunch',
-                    titleTwo: 'Dinner',
+                    title: AppLocalizations.of(context)!.lunch,
+                    titleTwo: AppLocalizations.of(context)!.dinner,
                     tabController: _tabController),
                 const SizedBox(
                   height: 20,

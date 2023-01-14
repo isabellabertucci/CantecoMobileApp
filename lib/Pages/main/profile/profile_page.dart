@@ -9,8 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-/* import 'package:path_provider/path_provider.dart'; 
-import 'package:path/path.dart';  */
+import '../../../widgets/language_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -31,17 +31,17 @@ class _ProfilePageState extends State<ProfilePage> {
       showCupertinoModalPopup(
         context: context,
         builder: (BuildContext context) => CupertinoActionSheet(
-          title: const Text('Select An Option'),
+          title: Text(AppLocalizations.of(context)!.select),
           actions: <Widget>[
             CupertinoActionSheetAction(
-              child: const Text('Camera'),
+              child: Text(AppLocalizations.of(context)!.camera),
               onPressed: () {
                 pickImage(ImageSource.camera);
                 Navigator.pop(context);
               },
             ),
             CupertinoActionSheetAction(
-              child: const Text('Library'),
+              child: Text(AppLocalizations.of(context)!.library),
               onPressed: () {
                 pickImage(ImageSource.gallery);
                 Navigator.pop(context);
@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: <Widget>[
                 ListTile(
                   leading: const Icon(Icons.photo),
-                  title: const Text('Camera'),
+                  title: Text(AppLocalizations.of(context)!.camera),
                   onTap: () => {
                     pickImage(ImageSource.camera),
                     Navigator.pop(context),
@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 ListTile(
                   leading: const Icon(Icons.library_add),
-                  title: const Text('Library'),
+                  title: Text(AppLocalizations.of(context)!.library),
                   onTap: () => {
                     pickImage(ImageSource.gallery),
                     Navigator.pop(context),
@@ -121,33 +121,36 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    InkWell(
-                      onTap: () => _showOptions(context),
-                      child: image != null
-                          ? ClipRRect(
-                              borderRadius: BorderRadius.circular(60),
-                              child: Image.file(
-                                image!,
+                    Stack(children: [
+                      InkWell(
+                        onTap: () => _showOptions(context),
+                        child: image != null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(60),
+                                child: Image.file(
+                                  image!,
+                                  width: 120,
+                                  height: 120,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : Container(
                                 width: 120,
                                 height: 120,
-                                fit: BoxFit.cover,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: CustomTheme.cultured,
+                                ),
+                                child: const Icon(Icons.photo),
                               ),
-                            )
-                          : Container(
-                              width: 120,
-                              height: 120,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: CustomTheme.cultured,
-                              ),
-                              child: const Icon(Icons.photo),
-                            ),
-                    ),
+                      ),
+                      const Positioned(right: 0, child: LanguageMyWidget()),
+                    ]),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      'Name',
+                      AppLocalizations.of(context)!.name,
                       style: Theme.of(context).primaryTextTheme.headline3,
                     ),
                     const SizedBox(height: 25),
@@ -157,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: Column(
                             children: [
                               Text(
-                                'School Number',
+                                AppLocalizations.of(context)!.schoolNumber,
                                 style: Theme.of(context).textTheme.subtitle1,
                                 /* add color */
                               ),
@@ -175,7 +178,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: Column(
                             children: [
                               Text(
-                                'School Name',
+                                AppLocalizations.of(context)!.schoolName,
                                 style: Theme.of(context).textTheme.subtitle1,
                                 /* add color */
                               ),
@@ -195,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Row(
                       children: [
                         Text(
-                          'Course',
+                          AppLocalizations.of(context)!.course,
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
                       ],
@@ -205,7 +208,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         Expanded(
                             child: Text(
-                          'Technical Superior Course in Design and Technologies for Mobile Apps',
+                          AppLocalizations.of(context)!.courseName,
                           style: Theme.of(context).primaryTextTheme.subtitle1,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
@@ -233,7 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Row(
                             children: [
                               Text(
-                                'Instituition',
+                                AppLocalizations.of(context)!.institution,
                                 style: Theme.of(context).textTheme.subtitle1,
                               ),
                             ],
@@ -244,7 +247,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            'Email Info',
+                            AppLocalizations.of(context)!.email,
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
@@ -253,7 +256,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            'Phone number',
+                            AppLocalizations.of(context)!.phone,
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
@@ -262,7 +265,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            'Address',
+                            AppLocalizations.of(context)!.address,
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                           Text(
@@ -285,7 +288,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      'Log Out',
+                      AppLocalizations.of(context)!.logOut,
                       style: Theme.of(context).primaryTextTheme.subtitle1,
                     ),
                   ],

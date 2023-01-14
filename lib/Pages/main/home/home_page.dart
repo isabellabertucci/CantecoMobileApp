@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/routes.dart';
 import '../../../widgets/custom_buttom_home.dart';
 import '../../../widgets/schedule_buttom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,7 +28,7 @@ class _HomePagestate extends State<HomePage> {
                   Expanded(
                     child: CustomButtonHome(
                       assetName: Assets.icCalendar,
-                      text: "Schedules",
+                      text: AppLocalizations.of(context)!.schedules,
                       onTap: () =>
                           Navigator.pushNamed(context, Routes.yourSchedulePage),
                     ),
@@ -36,7 +37,7 @@ class _HomePagestate extends State<HomePage> {
                   Expanded(
                     child: CustomButtonHome(
                         assetName: Assets.icPrice,
-                        text: "Price List",
+                        text: AppLocalizations.of(context)!.priceList,
                         onTap: () =>
                             Navigator.pushNamed(context, Routes.priceListPage)),
                   )
@@ -44,7 +45,7 @@ class _HomePagestate extends State<HomePage> {
               ),
               const SizedBox(height: 20),
               CustomScheduleB(
-                text: 'Schedule your meal',
+                text: AppLocalizations.of(context)!.scheduleMeal,
                 assetName: Assets.icAdd,
                 onTap: () => Navigator.pushNamed(context, Routes.mealsPage),
               ),

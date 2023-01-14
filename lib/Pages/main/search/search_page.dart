@@ -6,6 +6,7 @@ import '../../../utils/theme.dart';
 import '../../../widgets/card_item_simple.dart';
 import '../../../widgets/input_search.dart';
 import 'package:sticky_headers/sticky_headers.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -16,6 +17,7 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final _textController = TextEditingController();
+
   String value = '';
   List<Food> searchFoodList = [];
 
@@ -146,7 +148,7 @@ class _SearchPageState extends State<SearchPage> {
                       color: CustomTheme.white,
                       height: 75,
                       child: InputSearch(
-                        hint: 'Search',
+                        hint: AppLocalizations.of(context)!.search,
                         icon: Assets.icSeachC,
                         controller: _textController,
                         onchange: searchItems,
@@ -158,7 +160,7 @@ class _SearchPageState extends State<SearchPage> {
                         Row(
                           children: [
                             Text(
-                              'All',
+                              AppLocalizations.of(context)!.all,
                               style:
                                   Theme.of(context).primaryTextTheme.subtitle1,
                             ),

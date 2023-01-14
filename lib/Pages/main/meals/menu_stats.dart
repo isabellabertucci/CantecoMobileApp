@@ -7,6 +7,7 @@ import '../../../widgets/custom_nutritional_stats.dart';
 import '../../../widgets/custom_pop_up.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'carbon_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MenuStats extends StatefulWidget {
   final String value;
@@ -59,9 +60,10 @@ class _MenuStatstate extends State<MenuStats>
     showDialog(
         context: context,
         builder: (context) {
-          return const PopUpDialog(
-              title: 'Confirm your order',
-              description: 'Tuna Pasta scheduled for xx/xx/xx');
+          return PopUpDialog(
+              title: AppLocalizations.of(context)!.confirmM,
+              description:
+                  'Tuna Pasta ${AppLocalizations.of(context)!.scheduleFor} xx/xx/xx');
         });
   }
 
@@ -116,8 +118,8 @@ class _MenuStatstate extends State<MenuStats>
 
               /* ITENS */
               ButtonLunchDinner(
-                  title: 'Water',
-                  titleTwo: 'Carbon',
+                  title: AppLocalizations.of(context)!.water,
+                  titleTwo: AppLocalizations.of(context)!.carbon,
                   tabController: _tabController),
               Expanded(
                   child: TabBarView(
@@ -131,7 +133,7 @@ class _MenuStatstate extends State<MenuStats>
               /* NUTRITIONAL VALUE */
 
               Text(
-                'Nutritional Value',
+                AppLocalizations.of(context)!.nutritional,
                 style: Theme.of(context).primaryTextTheme.headline1,
               ),
 
@@ -144,19 +146,26 @@ class _MenuStatstate extends State<MenuStats>
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    NutriStats(statsInfo: 'kcal', statsNumber: 565),
+                  children: [
+                    const NutriStats(statsInfo: 'kcal', statsNumber: 565),
                     NutriStats(
-                        statsInfo: 'protein', statsNumber: 20 /* + 'g' */),
-                    NutriStats(statsInfo: 'fat', statsNumber: 14 /* + 'g' */),
-                    NutriStats(statsInfo: 'carbs', statsNumber: 50 /* + 'g' */),
+                        statsInfo: AppLocalizations.of(context)!.protein,
+                        statsNumber: 20 /* + 'g' */),
+                    NutriStats(
+                        statsInfo: AppLocalizations.of(context)!.fat,
+                        statsNumber: 14 /* + 'g' */),
+                    NutriStats(
+                        statsInfo: AppLocalizations.of(context)!.carbs,
+                        statsNumber: 50 /* + 'g' */),
                   ],
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              CustomButton(text: 'Order', onTap: _showDialog),
+              CustomButton(
+                  text: AppLocalizations.of(context)!.order,
+                  onTap: _showDialog),
 
               /* FIM */
             ],

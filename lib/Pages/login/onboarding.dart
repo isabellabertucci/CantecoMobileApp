@@ -164,7 +164,7 @@ class OnboardContent extends StatelessWidget {
             style: Theme.of(context).primaryTextTheme.headline1,
           ),
           const SizedBox(
-            height: 20,
+            height: 15,
           ),
           Text(
             textAlign: TextAlign.center,

@@ -6,6 +6,7 @@ import '../../utils/routes.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_pop_up_loader.dart';
 import '../../widgets/custom_text_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,8 +26,9 @@ class _LoginPageState extends State<LoginPage> {
     showDialog(
         context: context,
         builder: (context) {
-          return const PopUpLoader(
-              title: 'Loading', description: 'this won\'t take long');
+          return PopUpLoader(
+              title: AppLocalizations.of(context)!.loading,
+              description: AppLocalizations.of(context)!.loadingM);
         });
   }
 
@@ -51,29 +53,29 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 40),
                 Center(
                   child: Text(
-                    'Log in',
+                    AppLocalizations.of(context)!.logIn,
                     style: Theme.of(context).primaryTextTheme.headline2,
                   ),
                 ),
                 const SizedBox(height: 40),
                 CustomTextField(
-                  label: 'Email',
-                  hint: 'Enter with your email',
+                  label: AppLocalizations.of(context)!.email,
+                  hint: AppLocalizations.of(context)!.enterEmail,
                   isPassword: false,
                   errorText: _showEmailError ? "User not found" : null,
                   controller: _textController,
                 ),
                 const SizedBox(height: 25),
                 CustomTextField(
-                  label: 'Password',
-                  hint: 'Enter with your password',
+                  label: AppLocalizations.of(context)!.registerPassword,
+                  hint: AppLocalizations.of(context)!.enterPassword,
                   isPassword: true,
                   controller: _passwordController,
                   errorText: _showPasswordError ? "Invalid password" : null,
                 ),
                 const SizedBox(height: 40),
                 CustomButton(
-                  text: 'Log in',
+                  text: AppLocalizations.of(context)!.logIn,
                   onTap: () async {
                     var loginResult = await _loginGateway.login(
                         email: _textController.text,
@@ -104,11 +106,11 @@ class _LoginPageState extends State<LoginPage> {
                     style: const TextStyle(color: Colors.black, fontSize: 16),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Don’t have an account? ',
+                        text: AppLocalizations.of(context)!.dontHave,
                         style: Theme.of(context).textTheme.headline2,
                       ),
                       TextSpan(
-                          text: 'Sign Up',
+                          text: AppLocalizations.of(context)!.signUp,
                           style: const TextStyle(
                               color: CustomTheme.ultramarineBlue,
                               fontWeight: FontWeight.bold),

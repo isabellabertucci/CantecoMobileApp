@@ -1,5 +1,4 @@
 import 'package:canteco_app/Langs/l10n.dart';
-import 'package:canteco_app/Pages/a.dart';
 import 'package:canteco_app/Pages/login/onboarding.dart';
 import 'package:canteco_app/Pages/login/sign_up_page.dart';
 import 'package:canteco_app/Pages/login/sign_up_page_sec.dart';
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
           theme: CustomTheme.lightMode(context),
           themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.a,
+          initialRoute: Routes.loginPage,
           routes: getRoutes(context),
           supportedLocales: L10n.all,
           localizationsDelegates: const [
@@ -65,7 +64,6 @@ class MyApp extends StatelessWidget {
       Routes.menuStatsPage: (context) => const MenuStats(value: ""),
       Routes.searchPage: (context) => const SearchPage(),
       Routes.profilePage: (context) => const ProfilePage(),
-      Routes.a: (context) => const MyWidget(),
     };
   }
 }

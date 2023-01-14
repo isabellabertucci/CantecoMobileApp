@@ -25,6 +25,7 @@ class InputSearch extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: TextFormField(
+          style: const TextStyle(color: CustomTheme.eerieBlack),
           controller: controller,
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -33,7 +34,7 @@ class InputSearch extends StatelessWidget {
                 .primaryTextTheme
                 .subtitle1
                 ?.copyWith(color: CustomTheme.silver),
-            labelStyle: Theme.of(context).primaryTextTheme.headline3,
+            labelStyle: Theme.of(context).primaryTextTheme.headline1,
             suffixIcon: IconButton(
               onPressed: null,
               /* ele é um icon button */

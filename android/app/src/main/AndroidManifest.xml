@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.canteco_app">
    <application
-        android:label="canteco_app"
+        android:label="canteco"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

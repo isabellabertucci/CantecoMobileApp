@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:canteco_app/http/api_url.dart';
 import 'package:canteco_app/http/http_response.dart';
 import 'package:canteco_app/http/log_interceptor.dart';

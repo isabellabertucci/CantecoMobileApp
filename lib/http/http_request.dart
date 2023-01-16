@@ -32,4 +32,22 @@ class HttpRequest {
       return HttpResponse(statusCode: 500, body: "");
     }
   }
+
+  Future<HttpResponse> get({required String path}) async {
+    var headers = <String, String>{};
+    headers.putIfAbsent('content-type', () => 'application/json');
+
+    try {
+      var url = Uri.parse("${ApiUrl.baseUrl}$path");
+
+      var apiResult = await _httpClient.get(url, headers: headers);
+
+      return HttpResponse(
+        statusCode: apiResult.statusCode,
+        body: apiResult.body,
+      );
+    } on HttpException {
+      return HttpResponse(statusCode: 500, body: "");
+    }
+  }
 }

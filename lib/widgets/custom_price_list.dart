@@ -35,14 +35,14 @@ class PriceList extends StatelessWidget {
             SizedBox(
               width: 90,
               child: Text(
-                '$withoutIva€',
+                withoutIva,
                 style: Theme.of(context).primaryTextTheme.subtitle2,
               ),
             ),
             SizedBox(
               width: 35,
               child: Text(
-                '$withIva€',
+                withIva,
                 style: Theme.of(context).primaryTextTheme.subtitle2,
               ),
             ),

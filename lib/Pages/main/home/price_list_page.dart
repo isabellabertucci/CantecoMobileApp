@@ -1,3 +1,5 @@
+import 'package:canteco_app/domain/price/price_gateway.dart';
+import 'package:canteco_app/domain/price/price_list_response.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/custom_price_list.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -10,8 +12,23 @@ class PriceListPage extends StatefulWidget {
 }
 
 class _PriceListPageState extends State<PriceListPage> {
+  final priceGateway = PriceGateway();
+  List<Price> _priceList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    priceGateway.getPriceList().then((List<Price> priceList) => {
+          setState(() {
+            _priceList = priceList;
+          })
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
@@ -30,7 +47,7 @@ class _PriceListPageState extends State<PriceListPage> {
                   child: Icon(Icons.adaptive.arrow_back),
                 ),
                 Text(
-                  AppLocalizations.of(context)!.priceList,
+                  localizations.priceList,
                   style: Theme.of(context).primaryTextTheme.headline1,
                 ),
                 const SizedBox(
@@ -57,47 +74,35 @@ class _PriceListPageState extends State<PriceListPage> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            PriceList(
-                user: AppLocalizations.of(context)!.student,
-                withoutIva: '2.75',
-                withIva: '2.75'),
-            const SizedBox(
-              height: 20,
-            ),
-            PriceList(
-                user: AppLocalizations.of(context)!.teacher,
-                withoutIva: '4.00',
-                withIva: '4.00'),
-            const SizedBox(
-              height: 20,
-            ),
-            PriceList(
-                user: AppLocalizations.of(context)!.guest,
-                withoutIva: '4.00',
-                withIva: '4.00'),
-            const SizedBox(
-              height: 20,
-            ),
-            PriceList(
-                user: AppLocalizations.of(context)!.scholarship,
-                withoutIva: '2.25',
-                withIva: '2.25'),
-            const SizedBox(
-              height: 20,
-            ),
-            PriceList(
-                user: AppLocalizations.of(context)!.employee,
-                withoutIva: '4.00',
-                withIva: '4.00'),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: _priceList.length,
+              itemBuilder: ((context, index) {
+                return PriceList(
+                  user: userType(localizations, _priceList[index].userType),
+                  withoutIva: _priceList[index].priceWoIva,
+                  withIva: _priceList[index].priceWIva,
+                );
+              }),
+            )
           ],
         ),
       )),
     ));
+  }
+
+  String userType(AppLocalizations localizations, String userType) {
+    switch (userType) {
+      case "Teacher":
+        return localizations.teacher;
+      case "Scholarship":
+        return localizations.scholarship;
+      case "Employee":
+        return localizations.employee;
+      default:
+        return localizations.guest;
+    }
   }
 }

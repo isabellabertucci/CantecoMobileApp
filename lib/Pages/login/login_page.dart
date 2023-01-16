@@ -77,12 +77,12 @@ class _LoginPageState extends State<LoginPage> {
                 CustomButton(
                   text: AppLocalizations.of(context)!.logIn,
                   onTap: () async {
+                    _showDialog();
                     var loginResult = await _loginGateway.login(
                         email: _textController.text,
                         password: _passwordController.text);
                     if (loginResult >= 200 && loginResult <= 299) {
                       setState(() {
-                        _showDialog();
                         Navigator.pushNamedAndRemoveUntil(
                             context, Routes.onboardingPage, (route) => false);
                       });
@@ -95,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                           _showEmailError = true;
                           _showPasswordError = false;
                         }
+                        Navigator.pop(context);
                       });
                     }
                   },

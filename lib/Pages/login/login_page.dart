@@ -89,11 +89,11 @@ class _LoginPageState extends State<LoginPage> {
                     } else {
                       setState(() {
                         if (loginResult == 422) {
-                          _showPasswordError = true;
-                          _showEmailError = false;
-                        } else {
-                          _showEmailError = true;
                           _showPasswordError = false;
+                          _showEmailError = true;
+                        } else {
+                          _showEmailError = false;
+                          _showPasswordError = true;
                         }
                         Navigator.pop(context);
                       });

@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           theme: CustomTheme.lightMode(context),
           themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.loginPage,
+          initialRoute: Routes.onboardingPage,
           routes: getRoutes(context),
           supportedLocales: L10n.all,
           localizationsDelegates: const [
@@ -61,7 +61,8 @@ class MyApp extends StatelessWidget {
       Routes.priceListPage: (context) => const PriceListPage(),
       Routes.mealsPage: (context) => const MealsPage(),
       Routes.individualItemPage: (context) => const ItemPage(),
-      Routes.menuStatsPage: (context) => const MenuStats(value: ""),
+      Routes.menuStatsPage: (context) =>
+          MenuStats(time: DateTime.now(), value: ''),
       Routes.searchPage: (context) => const SearchPage(),
       Routes.profilePage: (context) => const ProfilePage(),
     };

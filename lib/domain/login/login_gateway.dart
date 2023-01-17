@@ -17,7 +17,7 @@ class LoginGateway {
       path: "/user/login",
       body: LoginRequest(email: email, password: password).toJson(),
     );
-
+    print(httpResult);
     return httpResult.statusCode;
   }
 

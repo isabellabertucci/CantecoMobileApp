@@ -5,7 +5,12 @@ import '../../../widgets/card_meals_menu.dart';
 
 class Lunch extends StatelessWidget {
   final String? value;
-  const Lunch({super.key, this.value});
+  final DateTime time;
+  const Lunch({
+    super.key,
+    this.value,
+    required this.time,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +37,10 @@ class Lunch extends StatelessWidget {
                 itemKcal: '155 Kcal',
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const MenuStats(value: "Tuna pasta"),
+                    builder: (context) => MenuStats(
+                      value: "Tuna pasta",
+                      time: time,
+                    ),
                   ),
                 ),
               ),
@@ -45,8 +53,10 @@ class Lunch extends StatelessWidget {
                 itemKcal: '155 Kcal',
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) =>
-                        const MenuStats(value: "Bean bolognese"),
+                    builder: (context) => MenuStats(
+                      value: "Bean bolognese",
+                      time: time,
+                    ),
                   ),
                 ),
               ),
@@ -63,8 +73,10 @@ class Lunch extends StatelessWidget {
                 itemKcal: '155 Kcal',
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) =>
-                        const MenuStats(value: "Chicken with pasta"),
+                    builder: (context) => MenuStats(
+                      value: "Chicken with pasta",
+                      time: time,
+                    ),
                   ),
                 ),
               ),
@@ -77,8 +89,10 @@ class Lunch extends StatelessWidget {
                 itemKcal: '155 kcal',
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) =>
-                        const MenuStats(value: "Sautéed Legumes"),
+                    builder: (context) => MenuStats(
+                      value: "Sautéed Legumes",
+                      time: time,
+                    ),
                   ),
                 ),
               ),

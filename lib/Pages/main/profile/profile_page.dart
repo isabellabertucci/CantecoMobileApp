@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:canteco_app/Pages/login/login_page.dart';
 import 'package:canteco_app/utils/cache/image.dart';
 import 'package:canteco_app/utils/routes.dart';
 import 'package:canteco_app/utils/theme.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import '../../../utils/routes_animation/shrink.dart';
 import '../../../widgets/language_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -278,8 +280,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: 35),
               GestureDetector(
-                onTap: () => Navigator.pushNamedAndRemoveUntil(
-                    context, Routes.loginPage, (route) => false),
+                onTap: () => Navigator.of(context).pushAndRemoveUntil(
+                  ShrinkAnimation(
+                    child: const LoginPage(),
+                  ),
+                  (route) => false,
+                ),
                 child: Row(
                   children: [
                     SvgPicture.asset(

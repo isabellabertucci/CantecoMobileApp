@@ -1,5 +1,7 @@
+import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/custom_item_impact.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WaterPage extends StatelessWidget {
   const WaterPage({
@@ -18,45 +20,51 @@ class WaterPage extends StatelessWidget {
           ItemStats(
             itemName: 'Pasta',
             quantity: '125gr',
-            impact: 200,
+            image: Assets.imgMassa,
+            impact: 1509,
             color: Colors.purple[300],
+            measure: AppLocalizations.of(context)!.liters,
           ),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Beef',
-            quantity: '100gr',
-            impact: 450,
-            color: Colors.blue,
-          ),
+          ItemStats(
+              itemName: 'Beef',
+              quantity: '100gr',
+              image: Assets.imgVaca,
+              impact: 12500,
+              color: Colors.blue,
+              measure: AppLocalizations.of(context)!.liters),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Carrot',
-            quantity: '20gr',
-            impact: 20,
-            color: Colors.green,
-          ),
+          ItemStats(
+              itemName: 'Carrot',
+              quantity: '20gr',
+              image: Assets.imgCenoura,
+              impact: 195,
+              color: Colors.green,
+              measure: AppLocalizations.of(context)!.liters),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Carrot',
-            quantity: '20gr',
-            impact: 20,
-            color: Colors.green,
-          ),
+          ItemStats(
+              itemName: 'Beans',
+              quantity: '20gr',
+              image: Assets.imgFeijao,
+              impact: 195,
+              color: Colors.green,
+              measure: AppLocalizations.of(context)!.liters),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Carrot',
-            quantity: '20gr',
-            impact: 20,
-            color: Colors.green,
-          ),
+          ItemStats(
+              itemName: 'Carrot',
+              quantity: '20gr',
+              image: Assets.imgCenoura,
+              impact: 195,
+              color: Colors.green,
+              measure: AppLocalizations.of(context)!.liters),
           const SizedBox(
             height: 10,
           ),

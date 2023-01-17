@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../utils/routes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../utils/theme.dart';
 
@@ -31,6 +32,23 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Onboard> demoData = [
+      Onboard(
+        image: "assets/images/onboard_1.svg",
+        title: AppLocalizations.of(context)!.onboarding1Title,
+        description: AppLocalizations.of(context)!.onboarding1Desc,
+      ),
+      Onboard(
+        image: "assets/images/onboard_2.svg",
+        title: AppLocalizations.of(context)!.onboarding2Title,
+        description: AppLocalizations.of(context)!.onboarding2Desc,
+      ),
+      Onboard(
+        image: "assets/images/onboard_3.svg",
+        title: AppLocalizations.of(context)!.onboarding3Title,
+        description: AppLocalizations.of(context)!.onboarding3Desc,
+      ),
+    ];
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -44,7 +62,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     const Spacer(),
-                    Text('Skip',
+                    Text(AppLocalizations.of(context)!.skip,
                         style: Theme.of(context).primaryTextTheme.headline6),
                     const SizedBox(width: 15),
                     Icon(Icons.adaptive.arrow_forward),
@@ -54,12 +72,12 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
             Expanded(
               child: PageView.builder(
-                itemCount: demo_data.length,
+                itemCount: demoData.length,
                 controller: _pageController,
                 itemBuilder: (context, index) => OnboardContent(
-                  image: demo_data[index].image,
-                  title: demo_data[index].title,
-                  description: demo_data[index].description,
+                  image: demoData[index].image,
+                  title: demoData[index].title,
+                  description: demoData[index].description,
                 ),
                 onPageChanged: (currentPage) =>
                     {setState(() => _currentPage = currentPage)},
@@ -67,7 +85,7 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
             SmoothPageIndicator(
               controller: _pageController,
-              count: demo_data.length,
+              count: demoData.length,
               effect: CustomizableEffect(
                   dotDecoration: DotDecoration(
                     height: 15,
@@ -86,7 +104,9 @@ class _OnBoardingState extends State<OnBoarding> {
               height: 15,
             ),
             CustomButton(
-              text: _currentPage == 2 ? "Done" : "Next",
+              text: _currentPage == 2
+                  ? AppLocalizations.of(context)!.done
+                  : AppLocalizations.of(context)!.next,
               onTap: () {
                 _currentPage == 2
                     ? Navigator.pushNamedAndRemoveUntil(
@@ -112,28 +132,6 @@ class Onboard {
   Onboard(
       {required this.image, required this.title, required this.description});
 }
-
-// ignore: non_constant_identifier_names
-final List<Onboard> demo_data = [
-  Onboard(
-    image: "assets/images/onboard_1.svg",
-    title: "A Project",
-    description:
-        'Through an eco-school project we have redesigned the app so each of us can make more conscious decisions of what we eat and how that impacts our future.',
-  ),
-  Onboard(
-    image: "assets/images/onboard_2.svg",
-    title: "The Basics",
-    description:
-        'Start exploring our app by checking each item of food we cosume daily which will show the impact it makes in our environment',
-  ),
-  Onboard(
-    image: "assets/images/onboard_3.svg",
-    title: "A message",
-    description:
-        'Let’s improve the world together and help people be more conscious of what they put in their bodies. Let’s go.',
-  ),
-];
 
 class OnboardContent extends StatelessWidget {
   const OnboardContent({

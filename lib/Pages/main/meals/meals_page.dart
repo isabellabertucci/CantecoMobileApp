@@ -14,14 +14,10 @@ class MealsPage extends StatefulWidget {
   State<MealsPage> createState() => _MealsPageState();
 }
 
-List<Widget> pages = [
-  const Lunch(),
-  const Dinner(),
-];
-
 class _MealsPageState extends State<MealsPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  late DateTime tempo = DateTime.now();
 
   @override
   void initState() {
@@ -76,7 +72,15 @@ class _MealsPageState extends State<MealsPage>
                     )
                   ],
                 ),
-                const InputDate(text: 'Today', icon: Assets.icAngle),
+                InputDate(
+                  text: 'Today',
+                  icon: Assets.icAngle,
+                  callBack: (time) {
+                    setState(() {
+                      tempo = time;
+                    });
+                  },
+                ),
                 const SizedBox(height: 20),
                 ButtonLunchDinner(
                     title: AppLocalizations.of(context)!.lunch,
@@ -89,8 +93,8 @@ class _MealsPageState extends State<MealsPage>
                     child: TabBarView(
                   controller: _tabController,
                   children: [
-                    pages[0],
-                    pages[1],
+                    Lunch(time: tempo),
+                    Dinner(time: tempo),
                   ],
                 ))
               ],

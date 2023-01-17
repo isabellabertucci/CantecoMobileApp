@@ -1,3 +1,4 @@
+import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -6,7 +7,8 @@ import '../utils/theme.dart';
 class ItemStats extends StatelessWidget {
   final String itemName;
   final String quantity;
-  final int impact;
+  final String measure;
+  final dynamic impact;
   final dynamic color;
   final dynamic image;
 
@@ -17,6 +19,7 @@ class ItemStats extends StatelessWidget {
     required this.impact,
     required this.color,
     this.image,
+    required this.measure,
   }) : super(key: key);
 
   @override
@@ -34,8 +37,11 @@ class ItemStats extends StatelessWidget {
         child: ListTile(
           leading: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              FlutterLogo(),
+            children: [
+              SvgPicture.asset(
+                image,
+                height: 45,
+              ),
             ],
           ),
           title: Row(
@@ -54,7 +60,7 @@ class ItemStats extends StatelessWidget {
             ],
           ),
           subtitle: Text(
-            '$impact liters',
+            '$impact $measure',
             style: Theme.of(context).primaryTextTheme.bodyText1,
           ),
           trailing: Container(

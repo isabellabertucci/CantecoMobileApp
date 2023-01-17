@@ -1,5 +1,7 @@
+import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../widgets/custom_item_impact.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CarbonPage extends StatelessWidget {
   const CarbonPage({
@@ -16,47 +18,53 @@ class CarbonPage extends StatelessWidget {
             height: 10,
           ),
           ItemStats(
-            itemName: 'Other',
+            itemName: 'Pasta',
             quantity: '125gr',
-            impact: 200,
+            image: Assets.imgMassa,
+            impact: 1,
             color: Colors.purple[300],
+            measure: AppLocalizations.of(context)!.carbon,
           ),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Other',
-            quantity: '100gr',
-            impact: 450,
-            color: Colors.blue,
-          ),
+          ItemStats(
+              itemName: 'Beef',
+              quantity: '100gr',
+              image: Assets.imgVaca,
+              impact: 32,
+              color: Colors.blue,
+              measure: AppLocalizations.of(context)!.carbon),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Other',
-            quantity: '20gr',
-            impact: 20,
-            color: Colors.green,
-          ),
+          ItemStats(
+              itemName: 'Carrot',
+              quantity: '20gr',
+              image: Assets.imgCenoura,
+              impact: 0.1,
+              color: Colors.green,
+              measure: AppLocalizations.of(context)!.carbon),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Other',
-            quantity: '20gr',
-            impact: 20,
-            color: Colors.green,
-          ),
+          ItemStats(
+              itemName: 'Beans',
+              quantity: '20gr',
+              image: Assets.imgFeijao,
+              impact: 0.1,
+              color: Colors.green,
+              measure: AppLocalizations.of(context)!.carbon),
           const SizedBox(
             height: 10,
           ),
-          const ItemStats(
-            itemName: 'Other',
-            quantity: '20gr',
-            impact: 20,
-            color: Colors.green,
-          ),
+          ItemStats(
+              itemName: 'Carrot',
+              quantity: '20gr',
+              image: Assets.imgCenoura,
+              impact: 0.1,
+              color: Colors.green,
+              measure: AppLocalizations.of(context)!.carbon),
           const SizedBox(
             height: 10,
           ),

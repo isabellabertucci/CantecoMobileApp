@@ -1,6 +1,8 @@
 import 'package:canteco_app/Pages/main/meals/water_page.dart';
+import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../widgets/button_lunch_dinner.dart';
 import '../../../widgets/custom_bar_chart.dart';
 import '../../../widgets/custom_nutritional_stats.dart';
@@ -11,7 +13,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MenuStats extends StatefulWidget {
   final String value;
-  const MenuStats({super.key, required this.value});
+  final DateTime time;
+  const MenuStats({super.key, required this.value, required this.time});
 
   @override
   State<MenuStats> createState() => _MenuStatstate();
@@ -63,7 +66,7 @@ class _MenuStatstate extends State<MenuStats>
           return PopUpDialog(
               title: AppLocalizations.of(context)!.confirmM,
               description:
-                  'Tuna Pasta ${AppLocalizations.of(context)!.scheduleFor} xx/xx/xx');
+                  '${widget.value} ${AppLocalizations.of(context)!.scheduleFor} ${widget.time.day}/${widget.time.month} /${widget.time.year}');
         });
   }
 
@@ -71,7 +74,7 @@ class _MenuStatstate extends State<MenuStats>
   Widget build(BuildContext context) {
     List<charts.Series<BarChartModel, String>> series = [
       charts.Series(
-        id: "financial",
+        id: "chart",
         data: data,
         domainFn: (BarChartModel series, _) => series.item,
         measureFn: (BarChartModel series, _) => series.financial,

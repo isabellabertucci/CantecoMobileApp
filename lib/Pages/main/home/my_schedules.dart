@@ -25,20 +25,18 @@ class _MySchedulesState extends State<MySchedules> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                      onTap: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, Routes.menuPage, (route) => false);
-                      },
-                      child: Icon(Icons.adaptive.arrow_back)),
+                    onTap: () => Navigator.pop(context),
+                    child: Icon(Icons.adaptive.arrow_back),
+                  ),
                   Text(
                     AppLocalizations.of(context)!.yourSchedules,
                     style: Theme.of(context).primaryTextTheme.headline1,
                   ),
                   InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, Routes.yourScheduleHistoryPage);
-                    },
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      Routes.yourScheduleHistoryPage,
+                    ),
                     child: SvgPicture.asset(
                       Assets.icClockC,
                       height: 25,

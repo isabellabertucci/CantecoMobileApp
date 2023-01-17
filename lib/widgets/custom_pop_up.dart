@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:canteco_app/widgets/custom_button3.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +76,10 @@ class _PopUpDialogState extends State<PopUpDialog> {
                     controller.stop();
                   } else {
                     controller.play();
+                    Timer(const Duration(seconds: 2), () {
+                      controller.stop();
+                      Navigator.pop(context);
+                    });
                   }
                 },
               ),

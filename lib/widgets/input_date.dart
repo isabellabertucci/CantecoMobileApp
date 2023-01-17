@@ -6,14 +6,17 @@ import 'package:flutter/material.dart';
 class InputDate extends StatefulWidget {
   final String text;
   final String icon;
+  final Function(DateTime)? callBack;
 
   const InputDate({
     super.key,
     required this.icon,
     required this.text,
+    this.callBack,
   });
 
   @override
+  // ignore: no_logic_in_create_state
   State<InputDate> createState() => _InputDateState();
 }
 
@@ -24,10 +27,11 @@ class _InputDateState extends State<InputDate> {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime.now(),
       lastDate: DateTime(2024),
     ).then((value) => setState(() {
           _dateTime = value!;
+          widget.callBack!(_dateTime);
         }));
   }
 

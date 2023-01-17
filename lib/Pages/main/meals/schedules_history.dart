@@ -26,10 +26,7 @@ class _MyHistorySchedulesState extends State<MyHistorySchedules> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, Routes.yourSchedulePage, (route) => false);
-                    },
+                    onTap: () => Navigator.pop(context),
                     child: Icon(Icons.adaptive.arrow_back),
                   ),
                   Text(

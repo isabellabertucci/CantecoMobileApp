@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:ffi';
-import 'package:intl/intl.dart';
 
 class Item {
   Item({

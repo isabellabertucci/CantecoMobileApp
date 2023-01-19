@@ -1,12 +1,9 @@
 import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/routes.dart';
-import '../../../utils/routes_animation/l_to_r.dart';
 import '../../../widgets/custom_buttom_home.dart';
 import '../../../widgets/schedule_buttom.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'price_list_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

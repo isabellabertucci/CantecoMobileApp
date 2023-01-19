@@ -1,8 +1,6 @@
 import 'package:canteco_app/Pages/main/meals/water_page.dart';
-import 'package:canteco_app/utils/assets.dart';
 import 'package:canteco_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../../widgets/button_lunch_dinner.dart';
 import '../../../widgets/custom_bar_chart.dart';
 import '../../../widgets/custom_nutritional_stats.dart';

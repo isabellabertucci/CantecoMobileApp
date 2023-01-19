@@ -1,7 +1,5 @@
-import 'package:canteco_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../utils/theme.dart';
 
 class ItemStats extends StatelessWidget {

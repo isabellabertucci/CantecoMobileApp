@@ -28,23 +28,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 900),
-        child: MaterialApp(
-          title: 'Canteco',
-          theme: CustomTheme.lightMode(context),
-          themeMode: ThemeMode.light,
-          debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onboardingPage,
-          routes: getRoutes(context),
-          supportedLocales: L10n.all,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-          ],
-        ),
+      child: MaterialApp(
+        title: 'Canteco',
+        theme: CustomTheme.lightMode(context),
+        themeMode: ThemeMode.light,
+        debugShowCheckedModeBanner: false,
+        initialRoute: Routes.onboardingPage,
+        routes: getRoutes(context),
+        supportedLocales: L10n.all,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
       ),
     );
   }

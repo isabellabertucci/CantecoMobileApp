@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:canteco_app/Pages/login/login_page.dart';
 import 'package:canteco_app/utils/cache/image.dart';
-import 'package:canteco_app/utils/routes.dart';
 import 'package:canteco_app/utils/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
